@@ -254,6 +254,8 @@ nav.scrolled {
   font-size: clamp(1.05rem, 2vw, 1.35rem);
   font-weight: 400;
   color: var(--text-muted);
+  padding-left: 0;
+  margin-left: 0;
 }
 .hero-primary .description {
   margin-top: 26px;
