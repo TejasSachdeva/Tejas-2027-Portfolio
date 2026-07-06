@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automated Hydroponics System — Tejas Sachdeva</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar" class="scrolled">
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="logo">TS</a>
+                <a href="index.html#projects" class="back-btn">← Back to work</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Hero -->
+    <header class="project-hero">
+        <div class="container">
+            <span class="eyebrow">Automation · Sustainability</span>
+            <h1>Automated Hydroponics System</h1>
+            <p class="subtitle">Low-Cost Automated Hydroponics System for Community Deployment</p>
+            <div class="project-tags">
+                <span class="tag">Mechanical Design</span>
+                <span class="tag">Sustainability</span>
+                <span class="tag">Control Systems</span>
+                <span class="tag">System Integration</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Project Content -->
+    <section class="project-content">
+        <div class="container">
+            <div class="content-section reveal">
+                <h2 class="section-title">Project Overview</h2>
+                <p class="section-text">This project involved designing and building an automated hydroponics system to provide reliable year-round plant growth in underserved communities in West Lafayette, Indiana. The goal was to develop a low-cost weather-resistant and easy-to-use system that could run with minimal human input while still applying professional engineering practices in CAD modeling, automation, and validation.</p>
+            </div>
+            <div class="content-section reveal">
+                <h2 class="section-title">Design for Simplicity</h2>
+                <p class="section-text">All major subsystems were modeled in Fusion 360. The grow modules were 3D-printed with optimized channel geometry to maintain uniform nutrient flow and reduce clogging. Net cup holders were parametrically modeled for flexibility across plant types. The frame used aluminum extrusion for modularity and acrylic panels for reservoir and electronics housing. CAD assemblies were checked for tolerances so users could assemble the system without tools. Fluid circulation was driven by a 12V submersible pump with a gravity-fed return line. An Arduino controlled pump cycling, monitored pH and temperature, and triggered shutoffs when conditions drifted outside the safe range.</p>
+            </div>
+            <div class="content-section reveal">
+                <h2 class="section-title">Constraints</h2>
+                <p class="section-text">Because the system was deployed outdoors in Indiana where winter temperatures drop well below freezing, weather resistance was critical. PETG and ABS were chosen for printed components while food-grade HDPE was used for the reservoir and aluminum extrusion for structural strength. Electronics were enclosed in waterproof housings with IP67-rated connectors. Cost and replicability were also key constraints, so all parts were chosen from widely available components such as PVC tubing, DC pumps, and off-the-shelf sensors. The project schedule was managed with Gantt charts to keep design, prototyping, and testing on track. We also consulted hydroponics experts ranging from university researchers to community growers to refine nutrient cycling strategies and ensure ease of use.</p>
+            </div>
+            <div class="content-section reveal">
+                <h2 class="section-title">Validation</h2>
+                <p class="section-text">The design was first validated in Fusion 360 simulations for flow distribution and structural loads. Physical testing followed with leak checks, pressure measurements, and endurance runs. Flow rates across all grow sites held within ±5% of target values. Sensors were calibrated against lab standards for pH and temperature. The pump completed more than 500 cycles of 15 minutes on and 45 minutes off without failure. Electrical validation included thermal checks on MOSFETs and relays to confirm safe operation. Expert feedback drove changes to manifold sizing and the addition of a mesh filter to reduce clogging.</p>
+            </div>
+            <div class="content-section reveal">
+                <h2 class="section-title">Results</h2>
+                <p class="section-text">The final system maintained stable operating conditions with pH between 5.5 and 6.5, flow rate near 1.5 L/min, and solution temperature between 18 and 24°C. The Fusion 360–designed grow modules were strong, weather resistant, and quick to assemble with setup times under 30 minutes. Deployed units in West Lafayette produced consistent yields of lettuce, basil, and spinach with approximately 75% survival. The project showed that CAD-driven design, automated controls, structured project planning, and expert input can be combined to deliver practical engineering solutions for food insecurity in cold climates.</p>
+                <p class="section-text"><div class="</p>
+            </div>
+
+            <div class="content-section reveal">
+                <h2 class="section-title">Gallery</h2>
+            </div>
+            <div class="image-gallery">
+                <figure class="gallery-item reveal">
+                    <div class="gallery-image"><img src="AHS 1.jpeg" alt="Figure 1: Hydroponics Team Picture" loading="lazy"></div>
+                    <figcaption class="gallery-title">Figure 1: Hydroponics Team Picture</figcaption>
+                </figure>
+                <figure class="gallery-item reveal">
+                    <div class="gallery-image"><img src="AHS 2.jpeg" alt="Figure 2: Arduino Control System" loading="lazy"></div>
+                    <figcaption class="gallery-title">Figure 2: Arduino Control System</figcaption>
+                </figure>
+                <figure class="gallery-item reveal">
+                    <div class="gallery-image"><img src="AHS 3.png" alt="Figure 3: Hydroponics System Full Assembly" loading="lazy"></div>
+                    <figcaption class="gallery-title">Figure 3: Hydroponics System Full Assembly</figcaption>
+                </figure>
+                <figure class="gallery-item reveal">
+                    <div class="gallery-image"><img src="AHS 4.png" alt="Figure 4: Seedling Growth Modules" loading="lazy"></div>
+                    <figcaption class="gallery-title">Figure 4: Seedling Growth Modules</figcaption>
+                </figure>
+            </div>
+
+            <div class="content-section" style="margin-top: clamp(56px, 8vw, 88px);">
+                <h2 class="section-title reveal">Technical Specifications</h2>
+                <div class="specs-grid">
+                <div class="spec-card reveal">
+                    <div class="spec-title">Mechanical / Structural</div>
+                    <div class="spec-value">
+                        <ul>
+                            <li>Frame: 20×20 mm aluminum extrusion with acrylic panels</li>
+                            <li>Grow modules: 3D-printed PETG/ABS, 2 mm wall thickness, 0.2 mm layer height</li>
+                            <li>Net cups: 2 in (50 mm) diameter, parametric design for alternative sizes</li>
+                            <li>Reservoir capacity: 15 L food-grade HDPE tank</li>
+                            <li>System footprint: 600 × 400 × 500 mm</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="spec-card reveal">
+                    <div class="spec-title">Fluid Delivery</div>
+                    <div class="spec-value">
+                        <ul>
+                            <li>Pump: 12 V DC submersible, max flow 3 L/min, operating at ~1.5 L/min</li>
+                            <li>Max pump head: 0.5 m</li>
+                            <li>Flow variation across grow sites: ±5%</li>
+                            <li>Duty cycle: 15 minutes on / 45 minutes off</li>
+                            <li>Mesh filtration: 200 µm stainless steel filter at manifold inlet</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="spec-card reveal">
+                    <div class="spec-title">Sensors and Controls</div>
+                    <div class="spec-value">
+                        <ul>
+                            <li>Microcontroller: Arduino Uno</li>
+                            <li>pH probe: range 0–14, accuracy ±0.1</li>
+                            <li>Temperature probe: DS18B20, accuracy ±0.5 °C</li>
+                            <li>Water level sensor: capacitive, range 0–200 mm</li>
+                            <li>RTC module: DS3231, battery-backed for power resilience</li>
+                            <li>Indicators: tri-color LED status display and buzzer alerts</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="spec-card reveal">
+                    <div class="spec-title">Electrical / Power</div>
+                    <div class="spec-value">
+                        <ul>
+                            <li>Power input: 12 V DC, 2 A max (24 W)</li>
+                            <li>Control circuit: MOSFET-based switching, with 5 V logic rail</li>
+                            <li>Connectors: IP67-rated waterproof plugs</li>
+                            <li>Safety: inline 2 A fuse, waterproof housing for electronics</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="spec-card reveal">
+                    <div class="spec-title">Environmental Performance</div>
+                    <div class="spec-value">
+                        <ul>
+                            <li>Operating temperature: 5–35 °C</li>
+                            <li>Reservoir insulation: maintains nutrient solution 18–24 °C in ambient range 10–30 °C</li>
+                            <li>Outdoor resistance: PETG/ABS parts UV-stable and weather resistant</li>
+                            <li>Maximum crop sites: 6 plants per module, expandable with additional manifolds</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="spec-card reveal">
+                    <div class="spec-title">Output / Validation</div>
+                    <div class="spec-value">
+                        <ul>
+                            <li>Typical growth cycle: 3–4 weeks for leafy greens (lettuce, basil, spinach)</li>
+                            <li>Plant survival rate: >75% during trial runs</li>
+                            <li>Assembly time: &lt;30 minutes with only basic tools</li>
+                            <li>System endurance: >500 pump duty cycles validated without failure</li>
+                        </ul>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="results-section">
+        <div class="container">
+            <h2 class="section-title reveal">Results &amp; Impact</h2>
+            <div class="results-grid">
+                <div class="result-item reveal">
+                    <div class="result-number">75%</div>
+                    <div class="result-label">Crop Survival Rate</div>
+                </div>
+                <div class="result-item reveal">
+                    <div class="result-number">120</div>
+                    <div class="result-label">Build Hours</div>
+                </div>
+                <div class="result-item reveal">
+                    <div class="result-number">30 mins</div>
+                    <div class="result-label">Assembly Time</div>
+                </div>
+                <div class="result-item reveal">
+                    <div class="result-number">10</div>
+                    <div class="result-label">3D Printed Parts</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Explore More -->
+    <section class="project-navigation">
+        <div class="container">
+            <h3>Explore more projects</h3>
+            <div class="nav-projects">
+                <a href="rc_car.html" class="nav-project">Custom RC Car →</a>
+                <a href="lhr.html" class="nav-project">Longhorn Racing →</a>
+                <a href="battlebots.html" class="nav-project">Battle Bots →</a>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

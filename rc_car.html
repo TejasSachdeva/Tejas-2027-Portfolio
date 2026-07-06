@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RC Car — Tejas Sachdeva</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar" class="scrolled">
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="logo">TS</a>
+                <a href="index.html#projects" class="back-btn">← Back to work</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Hero -->
+    <header class="project-hero">
+        <div class="container">
+            <span class="eyebrow">Drivetrain · Dynamics</span>
+            <h1>RC Car</h1>
+            <p class="subtitle">Custom Built Remote-Controlled Racing Vehicle</p>
+            <div class="project-tags">
+                <span class="tag">DFM</span>
+                <span class="tag">Validation</span>
+                <span class="tag">Control Systems</span>
+                <span class="tag">3D Printing</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Project Content -->
+    <section class="project-content">
+        <div class="container">
+            <div class="content-section reveal">
+                <h2 class="section-title">Project Overview</h2>
+                <p class="section-text">This project involved designing and building a custom remote-controlled car from scratch, focusing on performance optimization, durability, and advanced control systems for competitive racing applications. The goal was to create a high-performance RC vehicle that could compete in local racing competitions while serving as a learning platform for mechanical design and electronics integration.</p>
+            </div>
+            <div class="content-section reveal">
+                <h2 class="section-title">Drivetrain</h2>
+                <p class="section-text">A gear-driven reduction was our baseline, using a two-stage spur arrangement with a 16-tooth pinion on the motor meshing to a 64-tooth gear on the intermediate shaft (≈4:1), followed by a 22-tooth gear driving an 88-tooth axle gear (≈4:1), for an overall 16:1 ratio. This layout gave strong torque multiplication and near-perfect efficiency (>97%), but it came at the cost of audible gear whine, higher backlash, and sharp load spikes whenever torque reversed. Even with careful attention to center distance, backlash control, and lubrication, the rigid gear mesh transmitted vibrations directly through the drivetrain, which led to occasional tooth edge chipping during abrupt accelerations. From a durability standpoint, the system was mechanically sound, but the harshness and dynamic stresses made it less forgiving in lightweight applications like our RC car.</p>
+                <p class="section-text">By contrast, we re-engineered the drivetrain with a synchronous belt system to reduce these drawbacks. The first stage used a 20-tooth HTD pulley on the motor driving a 60-tooth pulley on the jackshaft (≈3:1), while the second stage used a 24-tooth pulley to an 84-tooth axle pulley (≈3.5:1), giving a total reduction of ~10.5:1—close enough to preserve acceleration and stall torque characteristics. Belts were specified at 10 mm width with aramid cords, chosen for their low stretch and high fatigue resistance. With wrap angles held above 160° using simple idlers, each stage maintained 7–9 teeth in contact, minimizing tooth shear and ratcheting. Efficiency dropped slightly to ~94%, but the belts absorbed transient loads through elastic deformation, reducing peak stresses by nearly 25% compared to gears. Noise levels dropped substantially, torque delivery became smoother, and vibration-induced wear was essentially eliminated. For rapid prototyping we printed pulleys in PETG at 35% infill, which held up for testing, before moving to machined aluminum for production. Overall, the belt approach traded a small hit in efficiency for far greater reliability, quieter operation, and much lower dynamic loading—an advantageous compromise for this application.</p>
+            </div>
+            <div class="content-section reveal">
+                <h2 class="section-title">GD&T</h2>
+                <p class="section-text">Because FDM printing varies in accuracy, we didn’t assume “CAD = part.” For holes and shafts, we used a hole-basis system targeting H7/g7 clearance fits. Bores were modeled slightly undersized (≈4.90–4.94 mm) and reamed to H7; where reaming wasn’t practical, brass bushings were added. For torque transfer, we avoided interference fits in polymers (to prevent creep) and instead used D-bores and split-clamp hubs. GD&T was applied to ensure the bore was aligned with the pulley OD, circular runout at the teeth stayed within 0.05 mm (to prevent belt walk), and hub faces remained perpendicular. This effectively created a controlled, press-fit-like system that was reliable in plastic. Parts were inspected in batches for bore size, runout, and D-flat width. About 70–80% passed and the rest were reworked or scrapped. This stabilized assembly quality and reduced dynamic loading during operation.</p>
+            </div>
+            <div class="content-section reveal">
+                <h2 class="section-title">Simulation and Validation</h2>
+                <p class="section-text">We exported simplified STEP models to ANSYS for FEA on the chassis rails, pulley hubs, and shaft adapters — the components most exposed to cyclic loading and stress concentration. PLA+ was modeled at E≈3.5 GPa and σt≈60 MPa; PA12 was included as a higher-strength alternative. Boundary conditions fixed the chassis at suspension points, with peak wheel-shaft torque of ~0.6 N·m and bonded contacts at hub interfaces. Meshes were refined to ~1 mm around fillets and bores; convergence was verified. Results mirrored testing: gear tooth root stresses >70 MPa (above PLA fatigue limit) explained stripping; belt-drive hub stresses dropped ~35% to ~38 MPa (FOS≈1.6 in PLA+, >2.0 in PA12). The chassis deflected &lt; 0.6 mm under a 20 N equivalent load. We thickened pulley-hub walls (2→3.5 mm), added 2 mm fillets at diameter transitions, and standardized PA12 on critical parts to push safety factors above 2.0.</p>
+            </div>
+            <div class="content-section reveal">
+                <h2 class="section-title">Steering and Vehicle Performance</h2>
+                <p class="section-text">We implemented Ackermann steering to align wheel turning radii, reducing scrub and improving maneuverability. CAD predicted a ~320 mm turning radius; experimental measurement was ~347 mm, consistent with tolerance stack-up and compliance. The final car weighed 12.5 N, achieved ~51 minutes per charge, and the belt drivetrain maintained performance without the catastrophic wear observed in the gear mesh. Motor thermal rise during extended runs highlighted a future opportunity for passive cooling and gearing/timing optimization.</p>
+                <p class="section-text"><div class="</p>
+            </div>
+
+            <div class="content-section reveal">
+                <h2 class="section-title">Gallery</h2>
+            </div>
+            <div class="image-gallery">
+                <figure class="gallery-item reveal">
+                    <div class="gallery-image"><img src="RC Front.png" alt="Figure 1: RC Car Front View" loading="lazy"></div>
+                    <figcaption class="gallery-title">Figure 1: RC Car Front View</figcaption>
+                </figure>
+                <figure class="gallery-item reveal wide-image">
+                    <div class="gallery-image"><img src="RC Side.png" alt="Figure 2: RC Car Side View" loading="lazy"></div>
+                    <figcaption class="gallery-title">Figure 2: RC Car Side View</figcaption>
+                </figure>
+                <figure class="gallery-item reveal">
+                    <div class="gallery-image"><img src="RC Top.png" alt="Figure 3: RC Car Top View" loading="lazy"></div>
+                    <figcaption class="gallery-title">Figure 3: RC Car Top View</figcaption>
+                </figure>
+                <figure class="gallery-item reveal">
+                    <div class="gallery-image"><img src="RC Ackermann Steering.png" alt="Figure 4: RC Car Ackermann Steering" loading="lazy"></div>
+                    <figcaption class="gallery-title">Figure 4: RC Car Ackermann Steering</figcaption>
+                </figure>
+                <figure class="gallery-item reveal">
+                    <div class="gallery-image"><img src="RC Custom.png" alt="Figure 5: Custom Pulley Design" loading="lazy"></div>
+                    <figcaption class="gallery-title">Figure 5: Custom Pulley Design</figcaption>
+                </figure>
+                <figure class="gallery-item reveal">
+                    <div class="gallery-image"><img src="RC FEA.png" alt="Figure 6: Pulley Hub Adapter FEA" loading="lazy"></div>
+                    <figcaption class="gallery-title">Figure 6: Pulley Hub Adapter FEA</figcaption>
+                </figure>
+                <figure class="gallery-item reveal wide-image">
+                    <div class="gallery-image"><img src="RC Chart.png" alt="Figure 7: Fit Selection Reference Table" loading="lazy"></div>
+                    <figcaption class="gallery-title">Figure 7: Fit Selection Reference Table</figcaption>
+                </figure>
+            </div>
+
+            <div class="content-section" style="margin-top: clamp(56px, 8vw, 88px);">
+                <h2 class="section-title reveal">Technical Specifications</h2>
+                <div class="specs-grid">
+                <div class="spec-card reveal">
+                    <div class="spec-title">Dimensions & Layout</div>
+                    <div class="spec-value">
+                        <ul>
+                            <li>Wheel configuration: 4-wheel</li>
+                            <li>Wheelbase: 0.308 m</li>
+                            <li>Track Width: 0.139 m</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="spec-card reveal">
+                    <div class="spec-title">Chassis</div>
+                    <div class="spec-value">
+                        <ul>
+                            <li>Material: 0.25 in birch plywood</li>
+                            <li>Manufacturing: Laser-cut</li>
+                            <li>Mass: 363 g</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="spec-card reveal">
+                    <div class="spec-title">Wheels</div>
+                    <div class="spec-value">
+                        <ul>
+                            <li>OD: 65 mm</li>
+                            <li>ID: 45 mm</li>
+                            <li>Width: 26 mm</li>
+                            <li>Mass: 120 g each</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="spec-card reveal">
+                    <div class="spec-title">Powertrain</div>
+                    <div class="spec-value">
+                        <ul>
+                            <li>Motor: Brushed Traxxas 1275</li>
+                            <li>Transmission: Belt-driven pulley system</li>
+                            <li>Final Ratio: Optimized for acceleration/speed balance</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="spec-card reveal">
+                    <div class="spec-title">Steering</div>
+                    <div class="spec-value">
+                        <ul>
+                            <li>Geometry: Ackermann</li>
+                            <li>Max Steering Angle: 47°</li>
+                            <li>Turning Radius: 0.35 m</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="spec-card reveal">
+                    <div class="spec-title">Electronics</div>
+                    <div class="spec-value">
+                        <ul>
+                            <li>Battery: Venom 1532</li>
+                            <li>ESC: Hobbywing Quicrun 1060</li>
+                            <li>Servo: Futaba S3003</li>
+                            <li>Receiver: Spektrum SR315</li>
+                            <li>Controller: Spektrum DX3 SMART</li>
+                        </ul>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="results-section">
+        <div class="container">
+            <h2 class="section-title reveal">Results &amp; Impact</h2>
+            <div class="results-grid">
+                <div class="result-item reveal">
+                    <div class="result-number">0.35 m</div>
+                    <div class="result-label">Turning Radius</div>
+                </div>
+                <div class="result-item reveal">
+                    <div class="result-number">15 mph</div>
+                    <div class="result-label">Max Speed</div>
+                </div>
+                <div class="result-item reveal">
+                    <div class="result-number">25 mins</div>
+                    <div class="result-label">Runtime Per Charge</div>
+                </div>
+                <div class="result-item reveal">
+                    <div class="result-number">1.85 lbs</div>
+                    <div class="result-label">System Mass</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Explore More -->
+    <section class="project-navigation">
+        <div class="container">
+            <h3>Explore more projects</h3>
+            <div class="nav-projects">
+                <a href="lhr.html" class="nav-project">Longhorn Racing →</a>
+                <a href="ahs.html" class="nav-project">Automated Hydroponics System →</a>
+                <a href="battlebots.html" class="nav-project">Battle Bots →</a>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

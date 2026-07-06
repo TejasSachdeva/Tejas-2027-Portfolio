@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battle Bots — Tejas Sachdeva</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar" class="scrolled">
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="logo">TS</a>
+                <a href="index.html#projects" class="back-btn">← Back to work</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Hero -->
+    <header class="project-hero">
+        <div class="container">
+            <span class="eyebrow">Combat Robotics</span>
+            <h1>Battle Bots</h1>
+            <p class="subtitle">Competitive Combat Robot Engineered for Performance and Durability</p>
+            <div class="project-tags">
+                <span class="tag">Mechanical Design</span>
+                <span class="tag">Electronics</span>
+                <span class="tag">Control Systems</span>
+                <span class="tag">3D Printing</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Project Content -->
+    <section class="project-content">
+        <div class="container">
+            <div class="content-section reveal">
+                <h2 class="section-title">Project Overview</h2>
+                <p class="section-text">This project involved the design and fabrication of a combat robot tailored for durability and control in a collegiate BattleBots competition. Unlike conventional designs that prioritize aggressive weapon systems, our approach focused on building a reinforced chassis and a highly reliable drive framework. The goal was to maximize survivability against high-energy impacts, maintain consistent mobility throughout matches, and ensure serviceability for rapid adjustments between rounds. The resulting design served as a platform to test structural reinforcement strategies, drivetrain optimization, and system integration under severe dynamic loading conditions.</p>
+            </div>
+            <div class="content-section reveal">
+                <h2 class="section-title">Design Approach</h2>
+                <p class="section-text">The chassis was plasma-cut from aluminum plate and configured as a rigid load-bearing frame with reinforced joints to resist high-magnitude impacts. Structural ribs and gusseting were strategically positioned to reduce stress concentrations at motor mounts and corner junctions, which are known weak points in combat environments. The drivetrain featured a custom-designed, 3D-printed belted gearbox, selected over a rigid geartrain for its ability to dampen transient loads while still transmitting ample torque. Simulations were conducted to validate the motor and power delivery system, confirming that battery capacity, pushing power, and free speed met performance requirements for sustained competition. The four-wheel drive layout provided high traction and maneuverability, with the belted reduction optimizing acceleration without sacrificing top-end speed.</p>
+            </div>
+            <div class="content-section reveal">
+                <h2 class="section-title">Manufacturing</h2>
+                <p class="section-text">Fabrication combined subtractive and additive processes to balance strength, precision, and adaptability. The chassis plates were plasma-cut to ensure accurate tolerances and minimize material waste, while reinforcement plates were machined to align with SolidWorks GD&T specifications. The drivetrain housings and belted gearbox were 3D printed, allowing rapid iteration during prototyping and effective integration with off-the-shelf pulleys and shafts. Assembly used a hybrid of bolted fasteners for serviceability and welded joints at high-stress interfaces for maximum rigidity. This approach produced a lightweight yet robust structural framework that met the competition’s strict weight classification.</p>
+            </div>
+            <div class="content-section reveal">
+                <h2 class="section-title">Testing and Validation</h2>
+                <p class="section-text">Validation emphasized structural reliability and drivetrain performance. Using SolidWorks FEA, the chassis was analyzed under simulated impact conditions with Von Mises stress plots, safety factor mapping, and displacement analysis guiding reinforcement in critical regions. Buckling studies were conducted on slender frame members to confirm resistance to instability, while simplified fatigue simulations ensured repeated impacts would not initiate crack propagation over multiple matches. The belted gearbox was analyzed for torque transfer and alignment, with emphasis on maintaining belt tension under dynamic loads. Additional structural studies included buckling analysis of slender frame members to rule out instability under compressive loads, and modal analysis to verify that natural frequencies were well separated from excitation frequencies caused by drivetrain vibration. Simplified fatigue simulations were also carried out to approximate the effect of repeated impacts, ensuring the chassis could endure cyclic stresses without crack initiation.</p>
+                <p class="section-text">Physical testing mirrored the simulations. Mobility trials confirmed responsive handling and drivetrain efficiency, while drop-weight and staged impact tests validated that the reinforced chassis absorbed forces without yielding. Extended runtime tests ensured that the motors and battery system delivered consistent torque output while maintaining safe thermal operating limits. The drivetrain in particular demonstrated high responsiveness and ease of control, aligning with predicted performance from simulation.</p>
+            </div>
+            <div class="content-section reveal">
+                <h2 class="section-title">Results</h2>
+                <p class="section-text">In competition, the robot consistently outperformed expectations, sustaining repeated direct strikes without structural failure while maintaining full mobility throughout matches. The reinforced chassis successfully absorbed and redistributed impact forces, preventing bending or cracking in critical load-bearing members. The drivetrain proved exceptionally resilient, delivering reliable torque and maneuverability even under repeated collisions. While the absence of an active weapon limited offensive capability, the design’s defensive robustness allowed it to outlast more aggressive opponents whose systems failed under combat stress. Ultimately, the robot secured 1st place out of 10 competing teams, validating the effectiveness of a durability-first design approach and demonstrating the value of robust chassis reinforcement and drivetrain reliability in combat robotics.</p>
+                <p class="section-text"><div class="</p>
+            </div>
+
+            <div class="content-section reveal">
+                <h2 class="section-title">Gallery</h2>
+            </div>
+            <div class="image-gallery">
+                <figure class="gallery-item reveal">
+                    <div class="gallery-image"><img src="BB Isometric view.png" alt="Figure 1: Battle Bot Isometric View" loading="lazy"></div>
+                    <figcaption class="gallery-title">Figure 1: Battle Bot Isometric View</figcaption>
+                </figure>
+                <figure class="gallery-item reveal">
+                    <div class="gallery-image"><img src="BB Side view.png" alt="Figure 2: Battle Bot Side View" loading="lazy"></div>
+                    <figcaption class="gallery-title">Figure 2: Battle Bot Side View</figcaption>
+                </figure>
+                <figure class="gallery-item reveal">
+                    <div class="gallery-image"><img src="BB Drivetrain Cad.png" alt="Figure 3: Battle Bot Powertrain" loading="lazy"></div>
+                    <figcaption class="gallery-title">Figure 3: Battle Bot Powertrain</figcaption>
+                </figure>
+                <figure class="gallery-item reveal">
+                    <div class="gallery-image"><img src="BB.JPG" alt="Figure 4: Battle Bot Fully Assembled" loading="lazy"></div>
+                    <figcaption class="gallery-title">Figure 4: Battle Bot Fully Assembled</figcaption>
+                </figure>
+                <figure class="gallery-item reveal">
+                    <div class="gallery-image"><img src="bb drivetrain.png" alt="Figure 5: Battle Bot Powetrain Assembly" loading="lazy"></div>
+                    <figcaption class="gallery-title">Figure 5: Battle Bot Powetrain Assembly</figcaption>
+                </figure>
+            </div>
+
+            <div class="content-section" style="margin-top: clamp(56px, 8vw, 88px);">
+                <h2 class="section-title reveal">Technical Specifications</h2>
+                <div class="specs-grid">
+                <div class="spec-card reveal">
+                    <div class="spec-title">Weight Class</div>
+                    <div class="spec-value">
+                        <ul>
+                            <li>15 lbs (Competition Limit)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="spec-card reveal">
+                    <div class="spec-title">Chassis</div>
+                    <div class="spec-value">
+                        <ul>
+                            <li>Plasma-cut aluminum plate with reinforced gussets and welded joints</li>
+                            <li>Designed for high impact resistance</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="spec-card reveal">
+                    <div class="spec-title">Drivetrain</div>
+                    <div class="spec-value">
+                        <ul>
+                            <li>Four-wheel differential drive powered by brushed DC motors</li>
+                            <li>Optimized chain reduction for torque delivery</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="spec-card reveal">
+                    <div class="spec-title">Gearbox</div>
+                    <div class="spec-value">
+                        <ul>
+                            <li>Custom 3D-printed belted gearbox</li>
+                            <li>Lightweight design providing torque damping and alignment stability</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="spec-card reveal">
+                    <div class="spec-title">Powertrain</div>
+                    <div class="spec-value">
+                        <ul>
+                            <li>Lithium-polymer battery with simulated runtime and power draw to validate free speed, pushing force, and endurance</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="spec-card reveal">
+                    <div class="spec-title">Control Electronics</div>
+                    <div class="spec-value">
+                        <ul>
+                            <li>Dual ESCs, Spektrum receiver and transmitter</li>
+                            <li>Rapid steering response for maneuverability in confined arenas</li>
+                        </ul>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="results-section">
+        <div class="container">
+            <h2 class="section-title reveal">Results &amp; Impact</h2>
+            <div class="results-grid">
+                <div class="result-item reveal">
+                    <div class="result-number">1st</div>
+                    <div class="result-label">Competition Ranking</div>
+                </div>
+                <div class="result-item reveal">
+                    <div class="result-number">50+</div>
+                    <div class="result-label">Impacts Sustained</div>
+                </div>
+                <div class="result-item reveal">
+                    <div class="result-number">0</div>
+                    <div class="result-label">Drivetrain Failures</div>
+                </div>
+                <div class="result-item reveal">
+                    <div class="result-number">10+</div>
+                    <div class="result-label">Custom 3D Printed Parts</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Explore More -->
+    <section class="project-navigation">
+        <div class="container">
+            <h3>Explore more projects</h3>
+            <div class="nav-projects">
+                <a href="rc_car.html" class="nav-project">Custom RC Car →</a>
+                <a href="lhr.html" class="nav-project">Longhorn Racing →</a>
+                <a href="ahs.html" class="nav-project">Automated Hydroponics System →</a>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

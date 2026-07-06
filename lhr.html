@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Longhorn Racing — Tejas Sachdeva</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar" class="scrolled">
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="logo">TS</a>
+                <a href="index.html#projects" class="back-btn">← Back to work</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Hero -->
+    <header class="project-hero">
+        <div class="container">
+            <span class="eyebrow">Thermal · CFD</span>
+            <h1>Longhorn Racing</h1>
+            <p class="subtitle">Battery Cooling Manifold for Solar Racing Vehicle</p>
+            <div class="project-tags">
+                <span class="tag">CFD</span>
+                <span class="tag">Design</span>
+                <span class="tag">Cross-Functionality</span>
+                <span class="tag">Manufacturing</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Project Content -->
+    <section class="project-content">
+        <div class="container">
+            <div class="content-section reveal">
+                <h2 class="section-title">Project Overview</h2>
+                <p class="section-text">This project focused on designing and optimizing a thermal intake and exhaust manifold for the solar vehicle’s battery system. The objective was to maintain safe operating temperatures under endurance race conditions, where battery packs experience fluctuating thermal loads. The system needed to balance airflow distribution, pressure drop, and heat dissipation to improve pack longevity and ensure reliable vehicle performance throughout extended runs.</p>
+            </div>
+            <div class="content-section reveal">
+                <h2 class="section-title">Design and CAD-CFD Integration</h2>
+                <p class="section-text">The cooling system consisted of a forward-facing intake duct paired with an exhaust plenum that directed airflow across the battery pack. CAD models were iteratively refined in SolidWorks and exported into ANSYS Fluent for analysis. Parametric design studies varied duct geometry, bend radii, and flow splitters to minimize separation zones and balance airflow across modules. By integrating CAD and CFD workflows, we could quickly iterate designs while tracking the effect of geometry changes on both flow uniformity and thermal gradients. Trade-offs centered around maximizing convective cooling efficiency without exceeding the available fan capacity.</p>
+            </div>
+            <div class="content-section reveal">
+                <h2 class="section-title">Simulation and Validation</h2>
+                <p class="section-text">Steady-state and transient CFD analyses quantified temperature distribution, heat flux, and pressure drop across the system. Initial simulations revealed stagnation regions that led to cell-level hot spots. By reshaping duct transitions and optimizing outlet geometry, we reduced localized peak temperatures by over 20% and achieved more uniform cooling across the pack. Pressure drop was maintained below ~150 Pa, ensuring compatibility with the team’s selected fans. Final results showed that the design effectively prevented thermal runaway risks, keeping cells within the safe operating envelope during simulated endurance cycles.</p>
+            </div>
+            <div class="content-section reveal">
+                <h2 class="section-title">Manufacturing and Implementation</h2>
+                <p class="section-text">The final intake and exhaust manifold were 3D printed using PETG, chosen for its balance of strength, thermal resistance, and ease of fabrication. Smooth internal channels reduced turbulence, while mounting bosses and alignment features ensured repeatable assembly with the battery housing. Considerations were also made for future instrumentation, including thermocouple and flow sensor integration, to validate CFD predictions with on-track data. The PETG prototype provided a durable, lightweight solution that could be rapidly iterated for subsequent design cycles.</p>
+                <p class="section-text"><div class="</p>
+            </div>
+
+            <div class="content-section reveal">
+                <h2 class="section-title">Gallery</h2>
+            </div>
+            <div class="image-gallery">
+                <figure class="gallery-item reveal">
+                    <div class="gallery-image"><img src="lhr intake front.png" alt="Figure 1: Cooling Intake Front View" loading="lazy"></div>
+                    <figcaption class="gallery-title">Figure 1: Cooling Intake Front View</figcaption>
+                </figure>
+                <figure class="gallery-item reveal">
+                    <div class="gallery-image"><img src="lhr intake back.png" alt="Figure 2: Cooling Intake Back View" loading="lazy"></div>
+                    <figcaption class="gallery-title">Figure 2: Cooling Intake Back View</figcaption>
+                </figure>
+                <figure class="gallery-item reveal wide-image">
+                    <div class="gallery-image"><img src="lhr outtake.png" alt="Figure 3: Cooling Outtake Front View" loading="lazy"></div>
+                    <figcaption class="gallery-title">Figure 3: Cooling Outtake Front View</figcaption>
+                </figure>
+                <figure class="gallery-item reveal">
+                    <div class="gallery-image"><img src="lhr outtake back.png" alt="Figure 4: Cooling Outtake Back View" loading="lazy"></div>
+                    <figcaption class="gallery-title">Figure 4: Cooling Outtake Back View</figcaption>
+                </figure>
+                <figure class="gallery-item reveal">
+                    <div class="gallery-image"><img src="lhr battery.png" alt="Figure 5: Solar Car Battery Assembly" loading="lazy"></div>
+                    <figcaption class="gallery-title">Figure 5: Solar Car Battery Assembly</figcaption>
+                </figure>
+                <figure class="gallery-item reveal">
+                    <div class="gallery-image"><img src="batt integ.png" alt="Figure 6: Cooling System and Battery Integration" loading="lazy"></div>
+                    <figcaption class="gallery-title">Figure 6: Cooling System and Battery Integration</figcaption>
+                </figure>
+                <figure class="gallery-item reveal wide-image">
+                    <div class="gallery-image"><img src="lhr routing.png" alt="Figure 7: Cooling Pipes Routing" loading="lazy"></div>
+                    <figcaption class="gallery-title">Figure 7: Cooling Pipes Routing</figcaption>
+                </figure>
+            </div>
+
+            <div class="content-section" style="margin-top: clamp(56px, 8vw, 88px);">
+                <h2 class="section-title reveal">Technical Specifications</h2>
+                <div class="specs-grid">
+                <div class="spec-card reveal">
+                    <div class="spec-title">Dimensions and Layout</div>
+                    <div class="spec-value">
+                        <ul>
+                            <li>Intake length: 13 in; diffuser expansion ratio: 3.2:1</li>
+                            <li>Geometry optimized for battery enclosure integration</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="spec-card reveal">
+                    <div class="spec-title">Material</div>
+                    <div class="spec-value">
+                        <ul>
+                            <li>3D-printed PETG throughout (prototype and final)</li>
+                            <li>Heat-resistant to ~80 °C, lightweight (≈ 350 g)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="spec-card reveal">
+                    <div class="spec-title">Flow Path & Geometry</div>
+                    <div class="spec-value">
+                        <ul>
+                            <li>Curved diffuser with 15° half-angle for pressure recovery</li>
+                            <li>Internal guide vanes to reduce velocity gradients</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="spec-card reveal">
+                    <div class="spec-title">Cooling Performance</div>
+                    <div class="spec-value">
+                        <ul>
+                            <li>CFD-validated mass flow ≈ 0.065 kg/s at 20 m/s vehicle speed</li>
+                            <li>Predicted cell temperature drop: ~4 °C under peak load</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="spec-card reveal">
+                    <div class="spec-title">Mounting and Integration</div>
+                    <div class="spec-value">
+                        <ul>
+                            <li>Quick-release fastener system for serviceability</li>
+                            <li>Interfaces directly with liquid-cooled battery manifold</li>
+                        </ul>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="results-section">
+        <div class="container">
+            <h2 class="section-title reveal">Results &amp; Impact</h2>
+            <div class="results-grid">
+                <div class="result-item reveal">
+                    <div class="result-number">45%</div>
+                    <div class="result-label">Cooling Airflow Improvement</div>
+                </div>
+                <div class="result-item reveal">
+                    <div class="result-number">20%</div>
+                    <div class="result-label">Flow Non-Uniformity Reduction</div>
+                </div>
+                <div class="result-item reveal">
+                    <div class="result-number">&lt; 57 °C</div>
+                    <div class="result-label">Max Battery Pack Temperature</div>
+                </div>
+                <div class="result-item reveal">
+                    <div class="result-number">250 g</div>
+                    <div class="result-label">Intake Weight</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Explore More -->
+    <section class="project-navigation">
+        <div class="container">
+            <h3>Explore more projects</h3>
+            <div class="nav-projects">
+                <a href="rc_car.html" class="nav-project">Custom RC Car →</a>
+                <a href="ahs.html" class="nav-project">Automated Hydroponics System →</a>
+                <a href="battlebots.html" class="nav-project">Battle Bots →</a>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
