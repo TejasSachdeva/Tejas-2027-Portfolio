@@ -505,8 +505,8 @@ nav.scrolled {
 }
 
 .project-content { padding: clamp(64px, 9vw, 104px) 0 0; }
-.content-section { margin-bottom: clamp(56px, 8vw, 88px); }
-.content-section .section-title { margin-bottom: 24px; }
+.content-section { margin-bottom: 48px; }
+.content-section .section-title { margin-bottom: 12px; }
 
 /* Image gallery — natural aspect, nothing cropped */
 .image-gallery {
@@ -580,7 +580,7 @@ nav.scrolled {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: clamp(16px, 2vw, 22px);
-  margin-top: 44px;
+  margin-top: 12px;
 }
 .result-item {
   background: var(--surface);
