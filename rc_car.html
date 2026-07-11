@@ -65,17 +65,18 @@
 
             <div class="content-section reveal">
                 <h2 class="section-title">Drivetrain Design</h2>
-                <p class="section-text">The initial gear drivetrain used a two-stage spur arrangement for a 16:1 reduction, but produced gear whine, backlash, and tooth chipping under load. We redesigned around an HTD synchronous belt system for a ~10.5:1 reduction — quieter, smoother, and significantly more reliable. Peak stresses dropped ~25% and vibration-induced wear was eliminated, with only a minor efficiency trade-off from 97% to 94%.</p>
+                <p class="section-text">The initial gear drivetrain used a two-stage spur arrangement for a 16:1 reduction, but produced gear whine, backlash, and tooth chipping under load. We redesigned around an HTD synchronous belt system for a ~10.5:1 reduction — quieter, smoother, and significantly more reliable. Stress concentrations reduced and vibration-induced wear was essentially eliminated, with only a minor efficiency trade-off from 97% to 94%. </p>
+                <p class="section-text">Since all structural components were 3D printed, DFM was a key consideration. Given FDM's anisotropic nature, we added lead-in chamfers on mating features for ease of assembly and fastening, and ensured all sharp edges had generous fillets to reduce stress concentrations at layer interfaces. </p>
             </div>
 
             <div class="content-section reveal">
-                <h2 class="section-title">Tolerancing & GD&T</h2>
-                <p class="section-text">FDM variability required careful tolerance control. We used an H7/g7 hole-basis clearance fit system, with bores reamed to spec and brass bushings where needed. D-bores and split-clamp hubs replaced interference fits to prevent polymer creep. Belt tooth runout was held within 0.05mm. Batch inspection yielded a 70–80% first-pass rate, which stabilized assembly quality and reduced dynamic loading.</p>
+                <h2 class="section-title">Tolerancing</h2>
+                <p class="section-text">To ensure a reliable press fit on the hub adapter, we referenced standard H7 tolerance charts to define the allowable bore dimensions. This kept the fit consistent across printed parts without requiring custom measurement tooling.</p>
             </div>
 
             <div class="content-section reveal">
                 <h2 class="section-title">Simulation & Steering</h2>
-                <p class="section-text">FEA in ANSYS confirmed the failure modes we saw in testing — gear stresses exceeded PLA's fatigue limit, while the belt redesign dropped hub stresses by ~35% with a safety factor above 2.0. Chassis deflection stayed under 0.6mm under load. Ackermann steering geometry was implemented to minimize wheel scrub, with a measured turning radius of 347mm closely matching the CAD prediction of 320mm.</p>
+                <p class="section-text">We ran a basic FEA on the hub adapter to identify peak stress regions and confirm the design wouldn't fail under expected loads. Ackermann steering geometry was implemented to minimize wheel scrub, with a measured turning radius of 347mm closely matching the CAD prediction of 320mm.</p>
             </div>
 
             <div class="content-section reveal">
