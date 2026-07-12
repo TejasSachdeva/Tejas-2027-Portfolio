@@ -580,7 +580,7 @@ nav.scrolled {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: clamp(16px, 2vw, 22px);
-  margin-top: 12px;
+  margin-top: 4px;
 }
 .result-item {
   background: var(--surface);
