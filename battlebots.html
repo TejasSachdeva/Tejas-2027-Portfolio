@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navigation -->
     <nav id="navbar" class="scrolled">
         <div class="container">
             <div class="nav-content">
@@ -20,7 +19,6 @@
         </div>
     </nav>
 
-    <!-- Project Hero -->
     <header class="project-hero">
         <div class="container">
             <span class="eyebrow">Combat Robotics</span>
@@ -35,29 +33,54 @@
         </div>
     </header>
 
-    <!-- Project Content -->
     <section class="project-content">
         <div class="container">
+
             <div class="content-section reveal">
                 <h2 class="section-title">Project Overview</h2>
                 <p class="section-text">Designed and fabricated a combat robot for a collegiate BattleBots competition, prioritizing chassis durability and drivetrain reliability over offensive weaponry. The goal was to maximize survivability under high-energy impacts while maintaining full mobility throughout matches.</p>
             </div>
+
+            <div class="content-section reveal">
+                <h2 class="section-title">Results</h2>
+                <div class="results-grid" style="margin-top: 12px; margin-bottom: 0;">
+                    <div class="result-item reveal">
+                        <div class="result-number">1st</div>
+                        <div class="result-label">Competition Ranking</div>
+                    </div>
+                    <div class="result-item reveal">
+                        <div class="result-number">50+</div>
+                        <div class="result-label">Impacts Sustained</div>
+                    </div>
+                    <div class="result-item reveal">
+                        <div class="result-number">0</div>
+                        <div class="result-label">Drivetrain Failures</div>
+                    </div>
+                    <div class="result-item reveal">
+                        <div class="result-number">10+</div>
+                        <div class="result-label">Custom 3D Printed Parts</div>
+                    </div>
+                </div>
+            </div>
+
             <div class="content-section reveal">
                 <h2 class="section-title">Design Approach</h2>
                 <p class="section-text">The chassis was plasma-cut from aluminum plate with reinforced gussets and strategic ribbing to resist impact loads at motor mounts and corner junctions. A custom 3D-printed belted gearbox was chosen over a rigid geartrain to dampen transient loads while delivering consistent torque, paired with a four-wheel drive layout for traction and maneuverability.</p>
             </div>
+
             <div class="content-section reveal">
                 <h2 class="section-title">Manufacturing</h2>
                 <p class="section-text">Chassis plates were plasma-cut for accuracy, with drivetrain housings 3D printed for rapid iteration. Assembly combined bolted fasteners for serviceability with welded joints at high-stress interfaces, producing a lightweight but impact-resistant structure within the competition weight limit.</p>
             </div>
+
             <div class="content-section reveal">
                 <h2 class="section-title">Testing and Validation</h2>
                 <p class="section-text">FEA in SolidWorks validated the chassis under simulated impact conditions using Von Mises stress plots and safety factor mapping, with buckling and fatigue checks on critical frame members. Physical drop-weight and staged impact tests confirmed the chassis absorbed forces without yielding, while drivetrain trials verified torque output and thermal limits under extended runtime.</p>
             </div>
+
             <div class="content-section reveal">
-                <h2 class="section-title">Results</h2>
-                <p class="section-text">In competition, the robot consistently outperformed expectations, sustaining repeated direct strikes without structural failure while maintaining full mobility throughout matches. The reinforced chassis successfully absorbed and redistributed impact forces, preventing bending or cracking in critical load-bearing members. The drivetrain proved exceptionally resilient, delivering reliable torque and maneuverability even under repeated collisions. While the absence of an active weapon limited offensive capability, the design’s defensive robustness allowed it to outlast more aggressive opponents whose systems failed under combat stress. Ultimately, the robot secured 1st place out of 10 competing teams, validating the effectiveness of a durability-first design approach and demonstrating the value of robust chassis reinforcement and drivetrain reliability in combat robotics.</p>
-                <p class="section-text"><div class="</p>
+                <h2 class="section-title">Competition Results</h2>
+                <p class="section-text">The robot placed 1st out of 10 teams, sustaining 50+ direct impacts without structural failure or drivetrain issues — validating the durability-first design approach.</p>
             </div>
 
             <div class="content-section reveal">
@@ -81,96 +104,72 @@
                     <figcaption class="gallery-title">Figure 4: Battle Bot Fully Assembled</figcaption>
                 </figure>
                 <figure class="gallery-item reveal">
-                    <div class="gallery-image"><img src="bb drivetrain.png" alt="Figure 5: Battle Bot Powetrain Assembly" loading="lazy"></div>
-                    <figcaption class="gallery-title">Figure 5: Battle Bot Powetrain Assembly</figcaption>
+                    <div class="gallery-image"><img src="bb drivetrain.png" alt="Figure 5: Battle Bot Powertrain Assembly" loading="lazy"></div>
+                    <figcaption class="gallery-title">Figure 5: Battle Bot Powertrain Assembly</figcaption>
                 </figure>
             </div>
 
             <div class="content-section" style="margin-top: clamp(56px, 8vw, 88px);">
                 <h2 class="section-title reveal">Technical Specifications</h2>
                 <div class="specs-grid">
-                <div class="spec-card reveal">
-                    <div class="spec-title">Weight Class</div>
-                    <div class="spec-value">
-                        <ul>
-                            <li>15 lbs (Competition Limit)</li>
-                        </ul>
+                    <div class="spec-card reveal">
+                        <div class="spec-title">Weight Class</div>
+                        <div class="spec-value">
+                            <ul>
+                                <li>15 lbs (Competition Limit)</li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="spec-card reveal">
-                    <div class="spec-title">Chassis</div>
-                    <div class="spec-value">
-                        <ul>
-                            <li>Plasma-cut aluminum plate with reinforced gussets and welded joints</li>
-                            <li>Designed for high impact resistance</li>
-                        </ul>
+                    <div class="spec-card reveal">
+                        <div class="spec-title">Chassis</div>
+                        <div class="spec-value">
+                            <ul>
+                                <li>Plasma-cut aluminum plate with reinforced gussets and welded joints</li>
+                                <li>Designed for high impact resistance</li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="spec-card reveal">
-                    <div class="spec-title">Drivetrain</div>
-                    <div class="spec-value">
-                        <ul>
-                            <li>Four-wheel differential drive powered by brushed DC motors</li>
-                            <li>Optimized chain reduction for torque delivery</li>
-                        </ul>
+                    <div class="spec-card reveal">
+                        <div class="spec-title">Drivetrain</div>
+                        <div class="spec-value">
+                            <ul>
+                                <li>Four-wheel differential drive powered by brushed DC motors</li>
+                                <li>Optimized chain reduction for torque delivery</li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="spec-card reveal">
-                    <div class="spec-title">Gearbox</div>
-                    <div class="spec-value">
-                        <ul>
-                            <li>Custom 3D-printed belted gearbox</li>
-                            <li>Lightweight design providing torque damping and alignment stability</li>
-                        </ul>
+                    <div class="spec-card reveal">
+                        <div class="spec-title">Gearbox</div>
+                        <div class="spec-value">
+                            <ul>
+                                <li>Custom 3D-printed belted gearbox</li>
+                                <li>Lightweight design providing torque damping and alignment stability</li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="spec-card reveal">
-                    <div class="spec-title">Powertrain</div>
-                    <div class="spec-value">
-                        <ul>
-                            <li>Lithium-polymer battery with simulated runtime and power draw to validate free speed, pushing force, and endurance</li>
-                        </ul>
+                    <div class="spec-card reveal">
+                        <div class="spec-title">Powertrain</div>
+                        <div class="spec-value">
+                            <ul>
+                                <li>Lithium-polymer battery validated for free speed, pushing force, and endurance</li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="spec-card reveal">
-                    <div class="spec-title">Control Electronics</div>
-                    <div class="spec-value">
-                        <ul>
-                            <li>Dual ESCs, Spektrum receiver and transmitter</li>
-                            <li>Rapid steering response for maneuverability in confined arenas</li>
-                        </ul>
+                    <div class="spec-card reveal">
+                        <div class="spec-title">Control Electronics</div>
+                        <div class="spec-value">
+                            <ul>
+                                <li>Dual ESCs, Spektrum receiver and transmitter</li>
+                                <li>Rapid steering response for maneuverability in confined arenas</li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
                 </div>
             </div>
+
         </div>
     </section>
 
-    <section class="results-section">
-        <div class="container">
-            <h2 class="section-title reveal">Results &amp; Impact</h2>
-            <div class="results-grid">
-                <div class="result-item reveal">
-                    <div class="result-number">1st</div>
-                    <div class="result-label">Competition Ranking</div>
-                </div>
-                <div class="result-item reveal">
-                    <div class="result-number">50+</div>
-                    <div class="result-label">Impacts Sustained</div>
-                </div>
-                <div class="result-item reveal">
-                    <div class="result-number">0</div>
-                    <div class="result-label">Drivetrain Failures</div>
-                </div>
-                <div class="result-item reveal">
-                    <div class="result-number">10+</div>
-                    <div class="result-label">Custom 3D Printed Parts</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Explore More -->
     <section class="project-navigation">
         <div class="container">
             <h3>Explore more projects</h3>
