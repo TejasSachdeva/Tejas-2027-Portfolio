@@ -38,7 +38,7 @@
 
             <div class="content-section reveal">
                 <h2 class="section-title">Project Overview</h2>
-                <p class="section-text">Designed and built an automated hydroponics system to provide reliable year-round plant growth in underserved communities in West Lafayette, Indiana. The goal was a low-cost, weather-resistant system that could run with minimal human input while applying professional engineering practices in CAD modeling, automation, and validation.</p>
+                <p class="section-text">Designed and deployed an automated hydroponics system to provide reliable year-round plant growth in underserved communities in West Lafayette, Indiana. The system was prototyped in Fusion 360 and initially 3D printed for testing, then transitioned to off-the-shelf components to make it replicable without access to specialized tools or equipment.</p>
             </div>
 
             <div class="content-section reveal">
@@ -65,17 +65,17 @@
 
             <div class="content-section reveal">
                 <h2 class="section-title">Design</h2>
-                <p class="section-text">All subsystems were modeled in Fusion 360. Grow modules were 3D-printed with optimized channel geometry for uniform nutrient flow, with parametric net cup holders for flexibility across plant types. Fluid circulation used a 12V submersible pump with a gravity-fed return line, controlled by an Arduino monitoring pH and temperature with automatic shutoffs when conditions drifted outside safe ranges.</p>
+                <p class="section-text">The system was modeled in Fusion 360 to validate layout, fluid routing, and component fit before physical assembly. Final construction used a wire shelving rack for the frame, PVC channels for grow sites, standard tubing and fittings for fluid delivery, and a plastic storage bin as the reservoir. An Arduino monitored pH and temperature and controlled pump cycling, with automatic shutoffs when conditions drifted outside safe ranges.</p>
             </div>
 
             <div class="content-section reveal">
                 <h2 class="section-title">Constraints</h2>
-                <p class="section-text">Deployed outdoors in Indiana, weather resistance drove material choices — PETG and ABS for printed parts, food-grade HDPE for the reservoir, and IP67-rated connectors for electronics. Cost and replicability were equally critical, so all components were sourced from widely available off-the-shelf parts to keep the system accessible and manufacturable without specialized tooling.</p>
+                <p class="section-text">Deployed outdoors in Indiana, weather resistance and cost drove every decision. All components were chosen from widely available off-the-shelf parts so the system could be replicated by community members without access to 3D printers or fabrication tools. Electronics were enclosed in waterproof housings with IP67-rated connectors for outdoor reliability.</p>
             </div>
 
             <div class="content-section reveal">
                 <h2 class="section-title">Validation</h2>
-                <p class="section-text">Flow distribution and structural loads were validated in Fusion 360 before physical testing. Leak checks, pressure measurements, and endurance runs confirmed flow rates held within ±5% across all grow sites, and the pump completed over 500 duty cycles without failure.</p>
+                <p class="section-text">Flow distribution and structural layout were validated in Fusion 360 before assembly. Physical testing confirmed flow rates held within ±5% across all grow sites, and the pump completed over 500 duty cycles without failure. Sensors were calibrated against lab standards for pH and temperature.</p>
             </div>
 
             <div class="content-section reveal">
@@ -107,11 +107,9 @@
                         <div class="spec-title">Mechanical / Structural</div>
                         <div class="spec-value">
                             <ul>
-                                <li>Frame: 20×20 mm aluminum extrusion with acrylic panels</li>
-                                <li>Grow modules: 3D-printed PETG/ABS, 2 mm wall thickness, 0.2 mm layer height</li>
-                                <li>Net cups: 2 in (50 mm) diameter, parametric design for alternative sizes</li>
-                                <li>Reservoir capacity: 15 L food-grade HDPE tank</li>
-                                <li>System footprint: 600 × 400 × 500 mm</li>
+                                <li>Frame: Wire shelving rack</li>
+                                <li>Grow channels: PVC pipe</li>
+                                <li>Reservoir: Plastic storage bin</li>
                             </ul>
                         </div>
                     </div>
@@ -119,57 +117,39 @@
                         <div class="spec-title">Fluid Delivery</div>
                         <div class="spec-value">
                             <ul>
-                                <li>Pump: 12 V DC submersible, max flow 3 L/min, operating at ~1.5 L/min</li>
-                                <li>Max pump head: 0.5 m</li>
-                                <li>Flow variation across grow sites: ±5%</li>
+                                <li>Pump: 12 V DC submersible, ~1.5 L/min</li>
+                                <li>Flow variation: ±5% across grow sites</li>
                                 <li>Duty cycle: 15 minutes on / 45 minutes off</li>
-                                <li>Mesh filtration: 200 µm stainless steel filter at manifold inlet</li>
                             </ul>
                         </div>
                     </div>
                     <div class="spec-card reveal">
-                        <div class="spec-title">Sensors and Controls</div>
+                        <div class="spec-title">Controls</div>
                         <div class="spec-value">
                             <ul>
                                 <li>Microcontroller: Arduino Uno</li>
-                                <li>pH probe: range 0–14, accuracy ±0.1</li>
-                                <li>Temperature probe: DS18B20, accuracy ±0.5 °C</li>
-                                <li>Water level sensor: capacitive, range 0–200 mm</li>
-                                <li>RTC module: DS3231, battery-backed for power resilience</li>
-                                <li>Indicators: tri-color LED status display and buzzer alerts</li>
+                                <li>Sensors: pH (±0.1), temperature (±0.5°C), water level</li>
+                                <li>Auto shutoff when conditions drift out of range</li>
                             </ul>
                         </div>
                     </div>
                     <div class="spec-card reveal">
-                        <div class="spec-title">Electrical / Power</div>
+                        <div class="spec-title">Electrical</div>
                         <div class="spec-value">
                             <ul>
-                                <li>Power input: 12 V DC, 2 A max (24 W)</li>
-                                <li>Control circuit: MOSFET-based switching, with 5 V logic rail</li>
-                                <li>Connectors: IP67-rated waterproof plugs</li>
-                                <li>Safety: inline 2 A fuse, waterproof housing for electronics</li>
+                                <li>Power: 12V DC, 24W max</li>
+                                <li>Connectors: IP67-rated waterproof</li>
                             </ul>
                         </div>
                     </div>
                     <div class="spec-card reveal">
-                        <div class="spec-title">Environmental Performance</div>
+                        <div class="spec-title">Performance</div>
                         <div class="spec-value">
                             <ul>
                                 <li>Operating temperature: 5–35 °C</li>
-                                <li>Reservoir insulation: maintains nutrient solution 18–24 °C in ambient range 10–30 °C</li>
-                                <li>Outdoor resistance: PETG/ABS parts UV-stable and weather resistant</li>
-                                <li>Maximum crop sites: 6 plants per module, expandable with additional manifolds</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="spec-card reveal">
-                        <div class="spec-title">Output / Validation</div>
-                        <div class="spec-value">
-                            <ul>
-                                <li>Typical growth cycle: 3–4 weeks for leafy greens (lettuce, basil, spinach)</li>
-                                <li>Plant survival rate: >75% during trial runs</li>
-                                <li>Assembly time: &lt;30 minutes with only basic tools</li>
-                                <li>System endurance: >500 pump duty cycles validated without failure</li>
+                                <li>Plant survival rate: >75%</li>
+                                <li>Assembly time: <30 minutes </li>
+                                <li>Pump endurance: >500 cycles validated</li>
                             </ul>
                         </div>
                     </div>
