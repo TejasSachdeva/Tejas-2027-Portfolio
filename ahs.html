@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Automated Hydroponics System — Tejas Sachdeva</title>
+    <title>Longhorn Racing — Tejas Sachdeva</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -21,14 +21,14 @@
 
     <header class="project-hero">
         <div class="container">
-            <span class="eyebrow">Automation · Sustainability</span>
-            <h1>Automated Hydroponics System</h1>
-            <p class="subtitle">Low-Cost Automated Hydroponics System for Community Deployment</p>
+            <span class="eyebrow">Thermal · CFD</span>
+            <h1>Longhorn Racing</h1>
+            <p class="subtitle">Battery Cooling Manifold for Solar Racing Vehicle</p>
             <div class="project-tags">
-                <span class="tag">Mechanical Design</span>
-                <span class="tag">Sustainability</span>
-                <span class="tag">Control Systems</span>
-                <span class="tag">System Integration</span>
+                <span class="tag">CFD</span>
+                <span class="tag">Design</span>
+                <span class="tag">Cross-Functionality</span>
+                <span class="tag">Manufacturing</span>
             </div>
         </div>
     </header>
@@ -38,44 +38,44 @@
 
             <div class="content-section reveal">
                 <h2 class="section-title">Project Overview</h2>
-                <p class="section-text">Designed and deployed an automated hydroponics system to provide reliable year-round plant growth in underserved communities in West Lafayette, Indiana. The system was prototyped in Fusion 360 and initially 3D printed for testing, then transitioned to off-the-shelf components to make it replicable without access to specialized tools or equipment.</p>
+                <p class="section-text">This project focused on designing and optimizing a thermal intake and exhaust manifold for the solar vehicle's battery system. The objective was to maintain safe operating temperatures under endurance race conditions, where battery packs experience fluctuating thermal loads. The system needed to balance airflow distribution, pressure drop, and heat dissipation to improve pack longevity and ensure reliable vehicle performance throughout extended runs.</p>
             </div>
 
             <div class="content-section reveal">
                 <h2 class="section-title">Results</h2>
                 <div class="results-grid" style="margin-top: 12px; margin-bottom: 0;">
                     <div class="result-item reveal">
-                        <div class="result-number">75%</div>
-                        <div class="result-label">Crop Survival Rate</div>
+                        <div class="result-number">45%</div>
+                        <div class="result-label">Cooling Airflow Improvement</div>
                     </div>
                     <div class="result-item reveal">
-                        <div class="result-number">120</div>
-                        <div class="result-label">Build Hours</div>
+                        <div class="result-number">20%</div>
+                        <div class="result-label">Flow Non-Uniformity Reduction</div>
                     </div>
                     <div class="result-item reveal">
-                        <div class="result-number">30 mins</div>
-                        <div class="result-label">Assembly Time</div>
+                        <div class="result-number">&lt; 57 °C</div>
+                        <div class="result-label">Max Battery Pack Temperature</div>
                     </div>
                     <div class="result-item reveal">
-                        <div class="result-number">500+</div>
-                        <div class="result-label">Pump Cycles Validated</div>
+                        <div class="result-number">250 g</div>
+                        <div class="result-label">Intake Weight</div>
                     </div>
                 </div>
             </div>
 
             <div class="content-section reveal">
-                <h2 class="section-title">Design</h2>
-                <p class="section-text">The system was modeled in Fusion 360 to validate layout, fluid routing, and component fit before physical assembly. Final construction used a wire shelving rack for the frame, PVC channels for grow sites, standard tubing and fittings for fluid delivery, and a plastic storage bin as the reservoir. An Arduino monitored pH and temperature and controlled pump cycling, with automatic shutoffs when conditions drifted outside safe ranges.</p>
+                <h2 class="section-title">Design and CAD-CFD Integration</h2>
+                <p class="section-text">The cooling system used a forward-facing intake duct paired with an exhaust plenum to direct airflow across the battery pack. CAD models were iteratively refined in SolidWorks and validated in ANSYS Fluent, with parametric studies on duct geometry, bend radii, and flow splitters to minimize separation zones and balance module-level airflow.</p>
             </div>
 
             <div class="content-section reveal">
-                <h2 class="section-title">Constraints</h2>
-                <p class="section-text">Deployed outdoors in Indiana, weather resistance and cost drove every decision. All components were chosen from widely available off-the-shelf parts so the system could be replicated by community members without access to 3D printers or fabrication tools. Electronics were enclosed in waterproof housings with IP67-rated connectors for outdoor reliability.</p>
+                <h2 class="section-title">Simulation and Validation</h2>
+                <p class="section-text">CFD analysis revealed stagnation regions causing cell-level hot spots. Reshaping duct transitions and optimizing outlet geometry reduced peak temperatures by over 20% and achieved more uniform cooling across the pack, with pressure drop held below 150 Pa — within the team's fan capacity constraints.</p>
             </div>
 
             <div class="content-section reveal">
-                <h2 class="section-title">Validation</h2>
-                <p class="section-text">Flow distribution and structural layout were validated in Fusion 360 before assembly. Physical testing confirmed flow rates held within ±5% across all grow sites, and the pump completed over 500 duty cycles without failure. Sensors were calibrated against lab standards for pH and temperature.</p>
+                <h2 class="section-title">Manufacturing and Implementation</h2>
+                <p class="section-text">Intake and exhaust manifolds were 3D printed in PETG for its thermal resistance and ease of fabrication. Smooth internal channels minimized turbulence, and integrated mounting bosses ensured repeatable, serviceable assembly with the battery housing.</p>
             </div>
 
             <div class="content-section reveal">
@@ -83,16 +83,32 @@
             </div>
             <div class="image-gallery">
                 <figure class="gallery-item reveal">
-                    <div class="gallery-image"><img src="AHS 2.jpeg" alt="Figure 2: Arduino Control System" loading="lazy"></div>
-                    <figcaption class="gallery-title">Figure 1: Arduino Control System</figcaption>
+                    <div class="gallery-image"><img src="lhr intake front.png" alt="Figure 1: Cooling Intake Front View" loading="lazy"></div>
+                    <figcaption class="gallery-title">Figure 1: Cooling Intake Front View</figcaption>
                 </figure>
                 <figure class="gallery-item reveal">
-                    <div class="gallery-image"><img src="AHS 3.png" alt="Figure 3: Hydroponics System Full Assembly" loading="lazy"></div>
-                    <figcaption class="gallery-title">Figure 2: Hydroponics System Full Assembly</figcaption>
+                    <div class="gallery-image"><img src="lhr intake back.png" alt="Figure 2: Cooling Intake Back View" loading="lazy"></div>
+                    <figcaption class="gallery-title">Figure 2: Cooling Intake Back View</figcaption>
+                </figure>
+                <figure class="gallery-item reveal wide-image">
+                    <div class="gallery-image"><img src="lhr outtake.png" alt="Figure 3: Cooling Outtake Front View" loading="lazy"></div>
+                    <figcaption class="gallery-title">Figure 3: Cooling Outtake Front View</figcaption>
                 </figure>
                 <figure class="gallery-item reveal">
-                    <div class="gallery-image"><img src="AHS 4.png" alt="Figure 4: Seedling Growth Modules" loading="lazy"></div>
-                    <figcaption class="gallery-title">Figure 3: Seedling Growth Modules</figcaption>
+                    <div class="gallery-image"><img src="lhr outtake back.png" alt="Figure 4: Cooling Outtake Back View" loading="lazy"></div>
+                    <figcaption class="gallery-title">Figure 4: Cooling Outtake Back View</figcaption>
+                </figure>
+                <figure class="gallery-item reveal">
+                    <div class="gallery-image"><img src="lhr battery.png" alt="Figure 5: Solar Car Battery Assembly" loading="lazy"></div>
+                    <figcaption class="gallery-title">Figure 5: Solar Car Battery Assembly</figcaption>
+                </figure>
+                <figure class="gallery-item reveal">
+                    <div class="gallery-image"><img src="batt integ.png" alt="Figure 6: Cooling System and Battery Integration" loading="lazy"></div>
+                    <figcaption class="gallery-title">Figure 6: Cooling System and Battery Integration</figcaption>
+                </figure>
+                <figure class="gallery-item reveal wide-image">
+                    <div class="gallery-image"><img src="lhr routing.png" alt="Figure 7: Cooling Pipes Routing" loading="lazy"></div>
+                    <figcaption class="gallery-title">Figure 7: Cooling Pipes Routing</figcaption>
                 </figure>
             </div>
 
@@ -100,52 +116,47 @@
                 <h2 class="section-title reveal">Technical Specifications</h2>
                 <div class="specs-grid">
                     <div class="spec-card reveal">
-                        <div class="spec-title">Mechanical / Structural</div>
+                        <div class="spec-title">Dimensions and Layout</div>
                         <div class="spec-value">
                             <ul>
-                                <li>Frame: Wire shelving rack</li>
-                                <li>Grow channels: PVC pipe</li>
-                                <li>Reservoir: Plastic storage bin</li>
+                                <li>Intake length: 13 in; diffuser expansion ratio: 3.2:1</li>
+                                <li>Geometry optimized for battery enclosure integration</li>
                             </ul>
                         </div>
                     </div>
                     <div class="spec-card reveal">
-                        <div class="spec-title">Fluid Delivery</div>
+                        <div class="spec-title">Material</div>
                         <div class="spec-value">
                             <ul>
-                                <li>Pump: 12 V DC submersible, ~1.5 L/min</li>
-                                <li>Flow variation: ±5% across grow sites</li>
-                                <li>Duty cycle: 15 minutes on / 45 minutes off</li>
+                                <li>3D-printed PETG throughout (prototype and final)</li>
+                                <li>Heat-resistant to ~80 °C, lightweight (≈ 350 g)</li>
                             </ul>
                         </div>
                     </div>
                     <div class="spec-card reveal">
-                        <div class="spec-title">Controls</div>
+                        <div class="spec-title">Flow Path & Geometry</div>
                         <div class="spec-value">
                             <ul>
-                                <li>Microcontroller: Arduino Uno</li>
-                                <li>Sensors: pH (±0.1), temperature (±0.5°C), water level</li>
-                                <li>Auto shutoff when conditions drift out of range</li>
+                                <li>Curved diffuser with 15° half-angle for pressure recovery</li>
+                                <li>Internal guide vanes to reduce velocity gradients</li>
                             </ul>
                         </div>
                     </div>
                     <div class="spec-card reveal">
-                        <div class="spec-title">Electrical</div>
+                        <div class="spec-title">Cooling Performance</div>
                         <div class="spec-value">
                             <ul>
-                                <li>Power: 12V DC, 24W max</li>
-                                <li>Connectors: IP67-rated waterproof</li>
+                                <li>CFD-validated mass flow ≈ 0.065 kg/s at 20 m/s vehicle speed</li>
+                                <li>Predicted cell temperature drop: ~4 °C under peak load</li>
                             </ul>
                         </div>
                     </div>
                     <div class="spec-card reveal">
-                        <div class="spec-title">Performance</div>
+                        <div class="spec-title">Mounting and Integration</div>
                         <div class="spec-value">
                             <ul>
-                                <li>Operating temperature: 5–35 °C</li>
-                                <li>Plant survival rate: >75%</li>
-                                <li>Assembly time: <30 minutes </li>
-                                <li>Pump endurance: >500 cycles validated</li>
+                                <li>Quick-release fastener system for serviceability</li>
+                                <li>Interfaces directly with liquid-cooled battery manifold</li>
                             </ul>
                         </div>
                     </div>
@@ -160,7 +171,7 @@
             <h3>Explore more projects</h3>
             <div class="nav-projects">
                 <a href="rc_car.html" class="nav-project">Custom RC Car →</a>
-                <a href="lhr.html" class="nav-project">Longhorn Racing →</a>
+                <a href="ahs.html" class="nav-project">Automated Hydroponics System →</a>
                 <a href="battlebots.html" class="nav-project">Battle Bots →</a>
             </div>
         </div>
