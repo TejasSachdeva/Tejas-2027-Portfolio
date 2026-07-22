@@ -264,7 +264,7 @@ nav.scrolled {
   line-height: 1.75;
   color: var(--text-muted);
 }
-.cta-buttons { display: flex; gap: 14px; margin-top: 40px; flex-wrap: wrap; }
+.cta-buttons { display: flex; align-items: center; gap: 14px; margin-top: 40px; flex-wrap: wrap; }
 
 /* Right-side spec block — reads like a technical drawing title block */
 .hero-meta {
