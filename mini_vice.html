@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Precision Vise — Tejas Sachdeva</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+    /* ---- shared coursework-page helper: pending gallery tile ---- */
+    .gallery-pending{display:flex;align-items:center;justify-content:center;min-height:220px;flex:1;
+      text-align:center;color:var(--text-dim);font-family:var(--font-mono);font-size:.78rem;
+      letter-spacing:.04em;border:1px dashed var(--border-strong);border-radius:var(--r-sm);
+      background:var(--surface-2);padding:20px}
+
+    </style>
+</head>
+<body>
+  <nav id="navbar" class="scrolled">
+    <div class="container">
+      <div class="nav-content">
+        <a href="index.html" class="logo">TS</a>
+        <a href="index.html#projects" class="back-btn">← Back to work</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="project-hero">
+    <div class="container">
+      <span class="eyebrow">Manufacturing · Machining</span>
+      <h1>Mini Precision Vise</h1>
+      <p class="subtitle">An 8-component bench vise machined from aluminum and brass stock using manual mill, manual lathe, and CNC operations.</p>
+      <div class="project-tags">
+        <span class="tag">Aluminum</span>
+        <span class="tag">Brass</span>
+        <span class="tag">Manual Mill</span>
+        <span class="tag">Manual Lathe</span>
+        <span class="tag">CNC Milling</span>
+        <span class="tag">Hand Tapping</span>
+        <span class="tag">Knurling</span>
+        <span class="tag">Broaching</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="project-content">
+    <div class="container">
+
+      <div class="content-section reveal">
+        <h2 class="section-title">Project Overview</h2>
+        <p class="section-text">A functional mini vise built from aluminum and brass stock. Each component required a different combination of machines and operations — the build spanned manual milling, turning, CNC milling, knurling, broaching, and hand tapping.</p>
+      </div>
+
+      <div class="content-section reveal">
+        <h2 class="section-title">At a Glance</h2>
+        <div class="results-grid" style="margin-top:26px;margin-bottom:0;">
+          <div class="result-item reveal"><div class="result-number">8</div><div class="result-label">Components</div></div>
+          <div class="result-item reveal"><div class="result-number">3</div><div class="result-label">Machine Types</div></div>
+          <div class="result-item reveal"><div class="result-number">6</div><div class="result-label">Operations</div></div>
+          <div class="result-item reveal"><div class="result-number">2</div><div class="result-label">Materials</div></div>
+        </div>
+      </div>
+
+      <div class="content-section reveal">
+        <h2 class="section-title">Components &amp; How They Were Made</h2>
+        <div class="specs-grid" style="margin-top:24px;">
+          <div class="spec-card reveal">
+            <div class="spec-title">Main Body</div>
+            <div class="spec-value">Milled from rectangular aluminum stock. End-mill for facing and the sliding channel; drilled for the brass insert and mounting holes.</div>
+          </div>
+          <div class="spec-card reveal">
+            <div class="spec-title">Moving Block</div>
+            <div class="spec-value">Milled from aluminum stock with an end-mill, then drilled for the shaft-retention bushing and fastener holes.</div>
+          </div>
+          <div class="spec-card reveal">
+            <div class="spec-title">Contact Plates (×2)</div>
+            <div class="spec-value">CNC milled from brass for flat, parallel jaw faces. Drilled and threaded for attachment screws.</div>
+          </div>
+          <div class="spec-card reveal">
+            <div class="spec-title">Threaded Insert</div>
+            <div class="spec-value">Turned on the lathe, then hand-tapped 1/4-20 UNC on the lathe to keep the tap square to the bore.</div>
+          </div>
+          <div class="spec-card reveal">
+            <div class="spec-title">Shaft-Retention Bushing</div>
+            <div class="spec-value">Turned on the lathe; seats in the moving block and captures the lead screw.</div>
+          </div>
+          <div class="spec-card reveal">
+            <div class="spec-title">Shaft</div>
+            <div class="spec-value">Pre-threaded aluminum rod cut to length. One end machined square on the lathe to mate with the knob.</div>
+          </div>
+          <div class="spec-card reveal">
+            <div class="spec-title">Knob</div>
+            <div class="spec-value">Turned and faced on the lathe, knurled for grip, then broached to a square bore to accept the square shaft end — a positive-drive coupling with no set screw.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-section reveal">
+        <h2 class="section-title">Gallery</h2>
+      </div>
+      <div class="image-gallery">
+        <figure class="gallery-item reveal">
+          <div class="gallery-image"><img src="mini_vice_1.png" alt="Mini vise assembled, three-quarter view" loading="lazy"></div>
+          <figcaption class="gallery-title">Assembled Vise — Three-Quarter View</figcaption>
+        </figure>
+        <figure class="gallery-item reveal">
+          <div class="gallery-image"><img src="mini_vice_2.png" alt="Mini vise assembled, lead-screw side" loading="lazy"></div>
+          <figcaption class="gallery-title">Assembled Vise — Lead-Screw Side</figcaption>
+        </figure>
+        <figure class="gallery-item reveal wide-image">
+          <div class="gallery-pending">Individual component photos — coming soon</div>
+          <figcaption class="gallery-title">Machined Components (Main Body, Jaws, Knob, Shaft)</figcaption>
+        </figure>
+      </div>
+
+      <div class="content-section" style="margin-top:clamp(56px,8vw,88px);">
+        <h2 class="section-title reveal">Technical Specifications</h2>
+        <div class="specs-grid">
+          <div class="spec-card reveal">
+            <div class="spec-title">Build Summary</div>
+            <div class="spec-value"><ul>
+              <li>8 components total</li>
+              <li>Aluminum + Brass</li>
+              <li>Manual mill, manual lathe, CNC mill</li>
+            </ul></div>
+          </div>
+          <div class="spec-card reveal">
+            <div class="spec-title">Operations</div>
+            <div class="spec-value"><ul>
+              <li>End-milling &amp; drilling</li>
+              <li>Turning &amp; facing</li>
+              <li>CNC milling</li>
+              <li>Knurling, broaching, hand tapping</li>
+            </ul></div>
+          </div>
+          <div class="spec-card reveal">
+            <div class="spec-title">Key Features</div>
+            <div class="spec-value"><ul>
+              <li>1/4-20 UNC lead screw</li>
+              <li>CNC brass contact plates</li>
+              <li>Square shaft–knob coupling</li>
+              <li>Knurled brass knob</li>
+            </ul></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="project-navigation">
+    <div class="container">
+      <h3>Explore more projects</h3>
+      <div class="nav-projects">
+        <a href="lattice.html" class="nav-project">SLS Octet Lattice →</a>
+        <a href="lhr.html" class="nav-project">Longhorn Racing →</a>
+        <a href="rc_car.html" class="nav-project">Custom RC Car →</a>
+      </div>
+    </div>
+  </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
