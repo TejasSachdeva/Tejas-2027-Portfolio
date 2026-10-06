@@ -42,20 +42,24 @@
                         <div class="result-label">Turning Radius</div>
                     </div>
                     <div class="result-item reveal">
-                        <div class="result-number">15 mph</div>
-                        <div class="result-label">Max Speed</div>
+                        <div class="result-number">1.27 kg</div>
+                        <div class="result-label">Curb Weight</div>
                     </div>
                     <div class="result-item reveal">
-                        <div class="result-number">25 mins</div>
-                        <div class="result-label">Runtime Per Charge</div>
+                        <div class="result-number">51 min</div>
+                        <div class="result-label">Measured Runtime</div>
+                    </div>
+                    <div class="result-item reveal">
+                        <div class="result-number">$59</div>
+                        <div class="result-label">Total Build Cost</div>
                     </div>
                 </div>
             </div>
 
             <div class="content-section reveal">
                 <h2 class="section-title">Drivetrain Design</h2>
-                <p class="section-text">The initial gear drivetrain used a two-stage spur arrangement for a 16:1 reduction, but produced gear whine, backlash, and tooth chipping under load. I redesigned around an HTD synchronous belt system for a ~10.5:1 reduction which was smoother and significantly more reliable. Vibration-induced wear was essentially eliminated.</p>
-                <p class="section-text">Since all printed parts were FDM, DFM was a key consideration. Given FDM's anisotropic nature, I added lead-in chamfers on mating features for ease of assembly and fastening, and ensured all sharp edges had generous fillets to reduce stress concentrations at layer interfaces.</p>
+                <p class="section-text">The original drivetrain used a gear-based transmission connected to bevel gears at the rear axle. On race day, the bevel gears sheared under load, rendering the car immobile mid-competition. With the race still ongoing, I redesigned the drivetrain around an HTD synchronous belt and pulley system — simpler to assemble, easier to align, and significantly more reliable. The final reduction came out to ~10.5:1.</p>
+                <p class="section-text">Since all custom parts were FDM printed, DFM was a key consideration throughout. Given FDM's anisotropic layer structure, I added lead-in chamfers on mating features and generous fillets at stress concentrations to reduce the chance of layer delamination under load.</p>
             </div>
 
             <div class="content-section reveal">
@@ -65,7 +69,7 @@
 
             <div class="content-section reveal">
                 <h2 class="section-title">Steering</h2>
-                <p class="section-text">Ackermann steering geometry was implemented to minimize wheel scrub during cornering. The measured turning radius of 347 mm came in close to the CAD prediction of 320 mm.</p>
+                <p class="section-text">Ackermann steering geometry was implemented to minimize wheel scrub during cornering. Using the wheelbase (308 mm) and track width (139 mm), the maximum Ackermann angle worked out to ~47°, giving a theoretical minimum turning radius of 287 mm. The measured value on the final car was 347 mm — slightly larger, likely due to axle compliance and the geometry of the pre-bought steering assembly we adapted the servo to.</p>
             </div>
 
             <div class="content-section reveal">
@@ -111,6 +115,7 @@
                             <li>Material: 0.25 in birch plywood</li>
                             <li>Manufacturing: Laser-cut</li>
                             <li>Mass: 363 g</li>
+                            <li>Curb weight: 1.27 kg</li>
                         </ul></div>
                     </div>
                     <div class="spec-card reveal">
@@ -146,6 +151,7 @@
                             <li>Servo: Futaba S3003</li>
                             <li>Receiver: Spektrum SR315</li>
                             <li>Controller: Spektrum DX3 SMART</li>
+                            <li>Measured runtime: 51 min</li>
                         </ul></div>
                     </div>
                 </div>
