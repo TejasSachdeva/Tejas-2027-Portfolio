@@ -49,27 +49,23 @@
                         <div class="result-number">25 mins</div>
                         <div class="result-label">Runtime Per Charge</div>
                     </div>
-                    <div class="result-item reveal">
-                        <div class="result-number">1.85 lbs</div>
-                        <div class="result-label">System Mass</div>
-                    </div>
                 </div>
             </div>
 
             <div class="content-section reveal">
                 <h2 class="section-title">Drivetrain Design</h2>
-                <p class="section-text">The initial gear drivetrain used a two-stage spur arrangement for a 16:1 reduction, but produced gear whine, backlash, and tooth chipping under load. We redesigned around an HTD synchronous belt system for a ~10.5:1 reduction which was smoother, and significantly more reliable. Stress concentrations were reduced and vibration-induced wear was essentially eliminated, with only a minor efficiency trade-off from 97% to 94%.</p>
-                <p class="section-text">Since all structural components were 3D printed, DFM was a key consideration. Given FDM's anisotropic nature, we added lead-in chamfers on mating features for ease of assembly and fastening, and ensured all sharp edges had generous fillets to reduce stress concentrations at layer interfaces.</p>
+                <p class="section-text">The initial gear drivetrain used a two-stage spur arrangement for a 16:1 reduction, but produced gear whine, backlash, and tooth chipping under load. I redesigned around an HTD synchronous belt system for a ~10.5:1 reduction which was smoother and significantly more reliable. Vibration-induced wear was essentially eliminated.</p>
+                <p class="section-text">Since all printed parts were FDM, DFM was a key consideration. Given FDM's anisotropic nature, I added lead-in chamfers on mating features for ease of assembly and fastening, and ensured all sharp edges had generous fillets to reduce stress concentrations at layer interfaces.</p>
             </div>
 
             <div class="content-section reveal">
-                <h2 class="section-title">Tolerancing</h2>
-                <p class="section-text">To ensure a reliable press fit on the hub adapter, we referenced standard H7 tolerance charts to define the allowable bore dimensions. This kept the fit consistent across printed parts without requiring custom measurement tooling.</p>
+                <h2 class="section-title">Fit & Assembly</h2>
+                <p class="section-text">Press fits on the hub adapter were dialed in through printed prototypes — iterating bore dimensions until the fit was consistent and repeatable across parts without requiring custom measurement tooling.</p>
             </div>
 
             <div class="content-section reveal">
-                <h2 class="section-title">Simulation & Steering</h2>
-                <p class="section-text">We ran a basic FEA on the hub adapter to identify peak stress regions and confirm the design wouldn't fail under expected loads. Ackermann steering geometry was implemented to minimize wheel scrub, with a measured turning radius of 347mm closely matching the CAD prediction of 320mm.</p>
+                <h2 class="section-title">Steering</h2>
+                <p class="section-text">Ackermann steering geometry was implemented to minimize wheel scrub during cornering. The measured turning radius of 347 mm came in close to the CAD prediction of 320 mm.</p>
             </div>
 
             <div class="content-section reveal">
