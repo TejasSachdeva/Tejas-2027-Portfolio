@@ -49,13 +49,13 @@
 
       <div class="content-section reveal">
         <h2 class="section-title">Project Overview</h2>
-        <p class="section-text">Designed a 40 × 40 × 40 mm octet lattice in nTop to maximize strength per unit mass under a 50% relative-density limit, printed in Nylon 12 via SLS as a compression specimen. The primary focus was understanding how SLS process constraints (minimum strut diameter, powder escape, recoater clearance) directly inform design decisions.</p>
+        <p class="section-text">Designed a 40 × 40 × 40 mm octet lattice in nTop to maximize strength per unit mass under a 50% relative-density limit, printed in Nylon 12 via SLS as a compression specimen. The primary focus was understanding how SLS process constraints — minimum strut diameter, powder escape, recoater clearance — directly inform design decisions.</p>
       </div>
 
       <div class="content-section reveal">
         <h2 class="section-title">Results</h2>
         <div class="results-grid" style="margin-top:26px;margin-bottom:0;">
-          <div class="result-item reveal"><div class="result-number">40³ mm</div><div class="result-label">Specimen Size</div></div>
+          <div class="result-item reveal"><div class="result-number">40³ mm³</div><div class="result-label">Specimen Size</div></div>
           <div class="result-item reveal"><div class="result-number">4×4×4</div><div class="result-label">Octet Array</div></div>
           <div class="result-item reveal"><div class="result-number">34.87%</div><div class="result-label">Relative Density</div></div>
           <div class="result-item reveal"><div class="result-number">1.9 mm</div><div class="result-label">Strut Diameter</div></div>
@@ -69,22 +69,22 @@
 
       <div class="content-section reveal">
         <h2 class="section-title">Parametric Sweep</h2>
-        <p class="section-text">Strut diameter was swept from 1.1 to 1.9 mm to map relative density and mass. Values computed in nTop using Nylon 12 (ρ = 1020 kg/m³).</p>
+        <p class="section-text">Strut diameter was swept from 1.1 to 1.9 mm to map relative density and mass. Values computed in nTop using Nylon 12 (ρ = 930 kg/m³).</p>
         <table class="data-table reveal">
           <thead><tr><th>Strut Ø (mm)</th><th>Relative Density</th><th>Mass (g)</th></tr></thead>
           <tbody>
-            <tr><td>1.1</td><td>13.58%</td><td>8.86</td></tr>
-            <tr><td>1.3</td><td>18.29%</td><td>11.94</td></tr>
-            <tr><td>1.5</td><td>23.48%</td><td>15.33</td></tr>
-            <tr><td>1.7</td><td>29.00%</td><td>18.93</td></tr>
-            <tr class="is-selected"><td>1.9</td><td>34.87%</td><td>22.76</td></tr>
+            <tr><td>1.1</td><td>13.58%</td><td>8.08</td></tr>
+            <tr><td>1.3</td><td>18.29%</td><td>10.88</td></tr>
+            <tr><td>1.5</td><td>23.48%</td><td>13.97</td></tr>
+            <tr><td>1.7</td><td>29.00%</td><td>17.25</td></tr>
+            <tr class="is-selected"><td>1.9</td><td>34.87%</td><td>20.75</td></tr>
           </tbody>
         </table>
       </div>
 
       <div class="content-section reveal">
         <h2 class="section-title">Final Design</h2>
-        <p class="section-text">The 1.9 mm strut was selected as the upper limit before the cell geometry would require manually designed powder escape holes. At higher diameters, the struts get thick enough that loose powder can no longer fall out naturally, requiring explicit escape features to be added to the design. Keeping struts at 1.9 mm meant the open cell geometry handled powder removal on its own, while still producing fully formed struts that survive the build.</p>
+        <p class="section-text">The 1.9 mm strut was selected as the upper limit before the cell geometry would require manually designed powder escape holes — at higher diameters, the struts get thick enough that loose powder can no longer fall out naturally, requiring explicit escape features to be added to the design. Keeping struts at 1.9 mm meant the open cell geometry handled powder removal on its own, while still producing fully formed, robust struts that survive the build.</p>
       </div>
 
       <div class="content-section reveal">
@@ -128,7 +128,7 @@
             <div class="spec-title">Process &amp; Material</div>
             <div class="spec-value"><ul>
               <li>Selective Laser Sintering (SLS)</li>
-              <li>Nylon 12 (PA12), ρ = 1020 kg/m³</li>
+              <li>Nylon 12 (PA12), ρ = 930 kg/m³</li>
               <li>Designed in nTop</li>
             </ul></div>
           </div>
@@ -145,8 +145,7 @@
             <div class="spec-title">Design Verification</div>
             <div class="spec-value"><ul>
               <li>Bounding box: 40 × 40 × 40 mm</li>
-              <li>Relative density &lt; 50% limit</li>
-              <li>STL: 46 MB (&lt; 50 MB limit)</li>
+              <li>Relative density: 34.87% (22,317 / 64,000 mm³)</li>
               <li>Watertight / manifold mesh</li>
             </ul></div>
           </div>
