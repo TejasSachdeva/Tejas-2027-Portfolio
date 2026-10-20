@@ -1,370 +1,800 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vision-Based Tactile Sensor — Tejas Sachdeva</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <style>
-    /* ---- tactile sensor page ---- */
-    .pipeline-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 12px;
-      margin-top: 24px;
-    }
-    .pipeline-step {
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-      border-radius: var(--r-sm);
-      padding: 18px 16px;
-      text-align: center;
-    }
-    .pipeline-step .step-label {
-      font-family: var(--font-mono);
-      font-size: .72rem;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: var(--text-dim);
-      margin-bottom: 6px;
-    }
-    .pipeline-step .step-value {
-      font-size: .95rem;
-      color: var(--text);
-      font-weight: 500;
-    }
-    .pipeline-arrow {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-dim);
-      font-size: 1.2rem;
-      padding: 0 4px;
-    }
-    .pipeline-row {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 24px;
-      flex-wrap: wrap;
-    }
-    .pipeline-row .pipeline-step {
-      flex: 1;
-      min-width: 120px;
-    }
-    .status-badge {
-      display: inline-block;
-      font-family: var(--font-mono);
-      font-size: .72rem;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: var(--accent);
-      background: var(--accent-soft);
-      border: 1px solid var(--accent);
-      border-radius: 999px;
-      padding: 4px 12px;
-      margin-top: 16px;
-    }
-    .specimen-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 24px;
-    }
-    .specimen-card {
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-      border-radius: var(--r-sm);
-      padding: 18px 16px;
-    }
-    .specimen-card .spec-title {
-      font-family: var(--font-mono);
-      font-size: .72rem;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: var(--text-dim);
-      margin-bottom: 8px;
-    }
-    .specimen-card ul {
-      margin: 0;
-      padding-left: 16px;
-      color: var(--text-muted);
-      font-size: .9rem;
-      line-height: 1.7;
-    }
-    </style>
-</head>
-<body>
-  <nav id="navbar" class="scrolled">
-    <div class="container">
-      <div class="nav-content">
-        <a href="index.html" class="logo">TS</a>
-        <a href="index.html#projects" class="back-btn">← Back</a>
+<title>Vision-Based Tactile Sensor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   Tejas Sachdeva — Portfolio
+   Shared design system: matte charcoal, off-white, hairline
+   borders, one restrained accent, mono "annotation" layer.
+   ============================================================ */
+
+:root {
+  --bg:          #e8dcc4;
+  --surface:     #e1d3b7;
+  --surface-2:   #dac9a8;
+  --border:        rgba(45, 35, 22, 0.14);
+  --border-strong: rgba(45, 35, 22, 0.26);
+  --text:      #241c13;
+  --text-muted:#5c4e3d;
+  --text-dim:  #706050;
+  --accent:     #7a3e1f;
+  --accent-soft:rgba(122, 62, 31, 0.14);
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  --r-sm: 10px;
+  --r:    14px;
+  --r-lg: 16px;
+  --container: 1120px;
+  --gutter: clamp(20px, 5vw, 40px);
+  --section-y: clamp(76px, 11vw, 132px);
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+::selection { background: var(--accent-soft); color: #fff; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding-inline: var(--gutter);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.section-title {
+  font-size: clamp(1.7rem, 3.4vw, 2.55rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--text);
+}
+.section-text {
+  font-size: 1.05rem;
+  line-height: 1.78;
+  color: var(--text-muted);
+  max-width: 68ch;
+}
+.section-text + .section-text { margin-top: 1.35rem; }
+
+/* Nav */
+nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 1000;
+  padding: 14px 0;
+  background: rgba(232, 220, 196, 0.7);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border-bottom: 1px solid transparent;
+  transition: background 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+nav.scrolled {
+  background: rgba(232, 220, 196, 0.9);
+  border-bottom-color: var(--border);
+}
+.nav-content { display: flex; justify-content: space-between; align-items: center; }
+.logo {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--text);
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  transition: border-color 0.25s var(--ease), color 0.25s var(--ease);
+}
+.logo:hover { border-color: var(--border-strong); }
+.back-btn {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.25s var(--ease), gap 0.25s var(--ease);
+}
+.back-btn:hover { color: var(--text); gap: 12px; }
+
+/* Project hero */
+.project-hero {
+  padding: 150px 0 68px;
+  border-bottom: 1px solid var(--border);
+}
+.project-hero .eyebrow { display: block; margin-bottom: 22px; }
+.project-hero h1 {
+  font-size: clamp(2.4rem, 6vw, 4.1rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.04;
+  color: var(--text);
+}
+.project-hero .subtitle {
+  margin-top: 18px;
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+  font-weight: 400;
+  color: var(--text-muted);
+  max-width: 60ch;
+}
+.project-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
+.tag {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  padding: 7px 14px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+}
+
+.project-content { padding: clamp(64px, 9vw, 104px) 0 0; }
+.content-section { margin-bottom: 48px; }
+.content-section .section-title { margin-bottom: 12px; }
+
+/* Image gallery */
+.image-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(18px, 2.5vw, 28px);
+  margin: 8px 0 0;
+}
+.gallery-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 16px;
+  transition: border-color 0.3s var(--ease);
+  display: flex;
+  flex-direction: column;
+}
+.gallery-item:hover { border-color: var(--border-strong); }
+.gallery-image {
+  border-radius: var(--r-sm);
+  overflow: hidden;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 180px;
+}
+.gallery-image img { width: 100%; height: 100%; object-fit: contain; }
+.gallery-image.wide-image, .gallery-item.wide-image { grid-column: 1 / -1; }
+.gallery-title {
+  margin-top: 14px;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.03em;
+  color: var(--text-dim);
+}
+/* Placeholder for missing images */
+.gallery-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 32px 20px;
+  text-align: center;
+}
+.gallery-placeholder .ph-tag {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid rgba(122,62,31,0.35);
+  border-radius: 999px;
+  padding: 3px 10px;
+}
+.gallery-placeholder .ph-desc {
+  font-size: 0.83rem;
+  color: var(--text-muted);
+  max-width: 280px;
+  line-height: 1.5;
+}
+.gallery-placeholder .ph-file {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-dim);
+}
+
+/* Specs */
+.specs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(16px, 2vw, 22px);
+  margin-top: 8px;
+}
+.spec-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 26px;
+  transition: border-color 0.3s var(--ease);
+}
+.spec-card:hover { border-color: var(--border-strong); }
+.spec-title {
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+}
+.spec-value { font-size: 0.92rem; color: var(--text-muted); }
+.spec-value ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.spec-value li { position: relative; padding-left: 16px; line-height: 1.55; }
+.spec-value li::before {
+  content: '';
+  position: absolute; left: 0; top: 0.62em;
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--text-dim);
+}
+
+/* Results */
+.results-section { border-top: 1px solid var(--border); padding-block: var(--section-y); }
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(16px, 2vw, 22px);
+  margin-top: 4px;
+}
+.result-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 34px 24px;
+  transition: border-color 0.3s var(--ease), transform 0.3s var(--ease);
+}
+.result-item:hover { border-color: var(--border-strong); transform: translateY(-3px); }
+.result-number {
+  font-size: clamp(1.9rem, 3.4vw, 2.5rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+.result-label {
+  margin-top: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  line-height: 1.4;
+}
+
+/* Project navigation footer */
+.project-navigation { padding: clamp(56px, 8vw, 92px) 0; text-align: center; border-top: 1px solid var(--border); }
+.project-navigation h3 { font-size: 1.35rem; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 30px; }
+.nav-projects { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; }
+.nav-project {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+  color: var(--text-muted);
+  padding: 12px 22px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: border-color 0.25s var(--ease), color 0.25s var(--ease), transform 0.25s var(--ease);
+}
+.nav-project:hover { border-color: var(--border-strong); color: var(--text); transform: translateY(-2px); }
+
+/* Scroll reveal */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
+.reveal.is-visible { opacity: 1; transform: none; }
+
+/* Citations */
+.cite {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--accent);
+  vertical-align: super;
+  line-height: 0;
+  margin-left: 1px;
+  cursor: default;
+}
+.references-section {
+  border-top: 1px solid var(--border);
+  padding-block: clamp(48px,7vw,80px);
+  margin-top: clamp(48px,7vw,80px);
+}
+.references-section h2 { margin-bottom: 28px; }
+.ref-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.ref-list li {
+  display: grid;
+  grid-template-columns: 2rem 1fr;
+  gap: 4px;
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.ref-list .ref-num {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  padding-top: 2px;
+}
+
+/* Tactile-page extras */
+.pipeline-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+.pipeline-step {
+  flex: 1;
+  min-width: 120px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  padding: 18px 16px;
+  text-align: center;
+}
+.pipeline-step .step-label {
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 6px;
+}
+.pipeline-step .step-value { font-size: .95rem; color: var(--text); font-weight: 500; }
+.pipeline-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-dim);
+  font-size: 1.2rem;
+  padding: 0 4px;
+}
+.status-badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  padding: 4px 12px;
+  margin-top: 16px;
+}
+.specimen-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 24px;
+}
+.specimen-card {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  padding: 18px 16px;
+}
+.specimen-card .spec-title {
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.specimen-card ul { margin: 0; padding-left: 16px; color: var(--text-muted); font-size: .9rem; line-height: 1.7; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .results-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 720px) {
+  .image-gallery { grid-template-columns: 1fr; }
+  .gallery-image.wide-image, .gallery-item.wide-image { grid-column: auto; }
+  .results-grid { grid-template-columns: repeat(2, 1fr); }
+  .specimen-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 420px) {
+  .results-grid { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+</style>
+
+<nav id="navbar" class="scrolled">
+  <div class="container">
+    <div class="nav-content">
+      <a href="index.html" class="logo">TS</a>
+      <a href="index.html#projects" class="back-btn">← Back</a>
+    </div>
+  </div>
+</nav>
+
+<header class="project-hero">
+  <div class="container">
+    <span class="eyebrow">ECE 382N · Tactile Sensing</span>
+    <h1>Vision-Based Tactile Sensor</h1>
+    <p class="subtitle">Mechanically Programmable Lattice Sensor for 3-Axis Force Estimation</p>
+    <div class="status-badge" style="margin-top:24px;">Data Collection in Progress — Oct 2026</div>
+  </div>
+</header>
+
+<section class="project-content">
+  <div class="container">
+
+    <div class="content-section reveal">
+      <h2 class="section-title">Project Overview</h2>
+      <p class="section-text">When a robot handles delicate objects, such as a wine glass or a ripe strawberry, it needs feedback on the magnitude and direction of the contact force. Without that information, it may damage the object or lose its grip. Tactile sensors measure these contact forces at the fingertip. Vision-based designs such as GelSight use a deformable gel above a camera, with a neural network estimating force from the observed deformation<span class="cite">[1,2]</span>. These sensors have been used in robotic manipulation and prosthetic applications, but the properties of a molded silicone layer are difficult to change after fabrication. Adjusting its stiffness requires making a new layer, and repeated loading can eventually damage the surface. One reported test found that the GelSight Mini lasted 1–3 hours under randomly directed loads of 10–30 N<span class="cite">[7]</span>.</p>
+      <p class="section-text">This project replaces the silicone gel with a 3D-printed polymer lattice. As the lattice deforms under load, an embedded camera records the change. A compact neural network then uses the difference image to estimate contact forces along three axes<span class="cite">[3]</span>. Changing the lattice geometry requires a CAD update and a new print, offering a more direct way to adjust the contact layer than reformulating and curing silicone. The sensor is intended for robotic hands and gantry end-effectors that require force feedback<span class="cite">[4]</span> — the same application space as GelSight, but with a mechanically programmable contact layer<span class="cite">[5]</span>.</p>
+      <div class="status-badge">Data collection in progress — Oct 2026</div>
+    </div>
+
+    <div class="content-section reveal">
+      <h2 class="section-title">Key Specs</h2>
+      <div class="results-grid" style="margin-top:26px;margin-bottom:0;">
+        <div class="result-item reveal">
+          <div class="result-number">3-axis</div>
+          <div class="result-label">Force Estimation (Fx, Fy, Fz)</div>
+        </div>
+        <div class="result-item reveal">
+          <div class="result-number">8 MP</div>
+          <div class="result-label">Arducam IMX179 Camera</div>
+        </div>
+        <div class="result-item reveal">
+          <div class="result-number">2,400</div>
+          <div class="result-label">Planned Load Cycles</div>
+        </div>
+        <div class="result-item reveal">
+          <div class="result-number">4</div>
+          <div class="result-label">Lattice Specimens Tested</div>
+        </div>
       </div>
     </div>
-  </nav>
 
-  <header class="project-hero">
-    <div class="container">
-      <h1>Vision-Based Tactile Sensor</h1>
-      <p class="subtitle">Mechanically Programmable Lattice Sensor for 3-Axis Force Estimation</p>
-    </div>
-  </header>
-
-  <section class="project-content">
-    <div class="container">
-
-      <div class="content-section reveal">
-        <h2 class="section-title">Project Overview</h2>
-        <p class="section-text">Designed and built a vision-based tactile sensor that uses SLA-printed diamond lattices to measure contact forces. An embedded camera records lattice deformation, and a compact neural network will use those images to estimate forces along three axes. The lattice geometry can be adjusted in CAD to change stiffness by varying strut diameter, unit cell size, or layer count. This project also investigates whether the printed lattice can withstand repeated loading better than conventional silicone sensing surfaces.</p>
-        <div class="status-badge">Data collection in progress — Oct 2026</div>
-      </div>
-
-      <div class="content-section reveal">
-        <h2 class="section-title">Key Specs</h2>
-        <div class="results-grid" style="margin-top:26px;margin-bottom:0;">
-          <div class="result-item reveal">
-            <div class="result-number">3-axis</div>
-            <div class="result-label">Force Estimation (Fx, Fy, Fz)</div>
-          </div>
-          <div class="result-item reveal">
-            <div class="result-number">8 MP</div>
-            <div class="result-label">Arducam IMX179 Camera</div>
-          </div>
-          <div class="result-item reveal">
-            <div class="result-number">2,400</div>
-            <div class="result-label">Planned Load Cycles</div>
-          </div>
-          <div class="result-item reveal">
-            <div class="result-number">4</div>
-            <div class="result-label">Lattice Specimens Tested</div>
-          </div>
+    <div class="content-section reveal">
+      <h2 class="section-title">Why Lattices?</h2>
+      <p class="section-text">Most vision-based tactile sensors use molded silicone elastomers as their deformable contact layer<span class="cite">[1,2]</span>. Silicone performs well, but its stiffness is largely determined during molding. Repeated high loads can also damage the surface. Adjusting the sensing range requires preparing and curing a new gel, which can take considerable time for a change to a single material property. Increasing stiffness may improve durability, but it can also reduce sensitivity to small forces. With a homogeneous elastomer, these properties are difficult to tune independently<span class="cite">[6,9]</span>. The goal was to develop a contact layer whose mechanical response could be adjusted through its geometry instead<span class="cite">[5]</span>.</p>
+      <p class="section-text">A 3D-printed metamaterial lattice offers another approach. Its unit-cell geometry, strut thickness, and relative density can be adjusted to change effective stiffness, providing more design flexibility than a homogeneous elastomer<span class="cite">[5]</span>. Our original plan tested two lattice types: re-entrant auxetic and diamond. Auxetic lattices have a negative Poisson’s ratio (NPR), meaning they contract laterally under compression instead of expanding. This behavior was expected to concentrate deformation near the contact point and make displacement easier to identify in the camera images<span class="cite">[11]</span>. Diamond lattices have a positive Poisson’s ratio (PPR) and were the control geometry to isolate whether NPR actually produces a cleaner signal.</p>
+      <p class="section-text">The auxetic design was ultimately excluded because of a manufacturing limitation. Kang et al.’s DLP printer can build re-entrant angles without support material, so their auxetic lattices came out intact<span class="cite">[10]</span>. Our SLA printer requires internal supports for the overhanging struts. Removing these supports from inside the lattice risks tearing the thin Flexible 50A struts, potentially damaging the specimen before testing. The study therefore shifted to diamond lattices, with strut diameter and top-plate presence varied to explore different stiffness configurations while remaining compatible with the printer.</p>
+      <div class="specs-grid" style="margin-top:28px;">
+        <div class="spec-card reveal">
+          <div class="spec-title">Programmable Stiffness</div>
+          <div class="spec-value">Strut diameter shifts effective stiffness without changing geometry family. The 1.5 mm → 2.0 mm sweep covers roughly a 2× stiffness range and remains printable on SLA without support rework.</div>
         </div>
-      </div>
-
-      <div class="content-section reveal">
-        <h2 class="section-title">Why Lattices?</h2>
-        <p class="section-text">Many vision-based tactile sensors, including GelSight, use silicone elastomer casts. These sensors work well, but changing their stiffness generally requires making a new cast, and repeated loading can cause the material to tear. A 3D-printed lattice offers another approach. Its stiffness can be adjusted by changing the strut diameter or unit cell size, then printing the updated design without a new mold or tooling. Printing four specimens takes about five hours. Testing will determine how well the lattice holds up under repeated compression and shear.</p>
-        <div class="specs-grid" style="margin-top:24px;">
-          <div class="spec-card reveal">
-            <div class="spec-title">Tunable Stiffness</div>
-            <div class="spec-value">Stiffness can be adjusted in CAD by changing strut diameter, unit cell size, or layer count. No new mold or material is needed.</div>
-          </div>
-          <div class="spec-card reveal">
-            <div class="spec-title">Fatigue Resistance</div>
-            <div class="spec-value">The lattice distributes load through its strut network. Repeated compression and shear tests will show whether this design improves durability.</div>
-          </div>
-          <div class="spec-card reveal">
-            <div class="spec-title">Rapid Reconfiguration</div>
-            <div class="spec-value">Locating pins align the lattice with the housing, allowing specimens to be changed by hand without removing multiple screws.</div>
-          </div>
+        <div class="spec-card reveal">
+          <div class="spec-title">Camera Visibility</div>
+          <div class="spec-value">Diamond’s open, symmetric nodes deform visibly under both compression and shear without occluding adjacent struts. The full deformation field is visible to the embedded camera as a clean difference image.</div>
         </div>
-      </div>
-
-      <div class="content-section reveal">
-        <h2 class="section-title">Hardware Design</h2>
-        <p class="section-text">The sensor has four main parts: a top cover that secures the lattice, the lattice specimen, a mid-frame for the LED ring, and a base that holds the camera. The housing was first printed in white PLA, but internal reflections reduced contrast in the camera image. I switched to black PLA to reduce reflected light and make the lattice deformation easier to see.</p>
-        <div class="specs-grid" style="margin-top:24px;">
-          <div class="spec-card reveal">
-            <div class="spec-title">Locating Pins</div>
-            <div class="spec-value">Aligns the top and bottom housing halves consistently. The pins also make it easier to swap specimens by hand and reduce setup variation between robot-arm runs.</div>
-          </div>
-          <div class="spec-card reveal">
-            <div class="spec-title">Lead-in Chamfers</div>
-            <div class="spec-value">Chamfers around the screw holes help guide fasteners into place and reduce the risk of cracking the PLA, which occurred during early assembly.</div>
-          </div>
-          <div class="spec-card reveal">
-            <div class="spec-title">External Brim Bracket</div>
-            <div class="spec-value">The lattice's built-in brim was too thin to attach rigidly to the housing. As a result, the boundary moved with the lattice and added noise to the camera signal. An external bracket now holds the brim in place so the measured deformation comes primarily from the lattice interior.</div>
-          </div>
-          <div class="spec-card reveal">
-            <div class="spec-title">LED Illumination</div>
-            <div class="spec-value">An SK6812 LED strip with 144 LEDs/m surrounds the lattice window. Consistent lighting helps limit shadows and bright spots that could appear in the difference image and be mistaken for lattice deformation.</div>
-          </div>
+        <div class="spec-card reveal">
+          <div class="spec-title">SLA Printability</div>
+          <div class="spec-value">Diamond struts are self-supporting at the angles used here. No internal support removal is required, which was the critical failure mode that ruled out auxetic geometries on an SLA platform.</div>
         </div>
-      </div>
-
-      <div class="content-section reveal">
-        <h2 class="section-title">Lattice Specimens</h2>
-        <p class="section-text">Four diamond-lattice specimens were printed from Formlabs Flexible 50A resin using SLA. The material was selected for its flexibility under low loads. The specimens form a 2×2 matrix that varies strut diameter and the presence of a top plate, allowing their effects on force estimation and durability to be compared.</p>
-        <div class="specimen-grid reveal">
-          <div class="specimen-card">
-            <div class="spec-title">Specimen A</div>
-            <ul>
-              <li>1.5 mm strut diameter</li>
-              <li>No top plate</li>
-              <li>Open lattice for direct strut visibility</li>
-            </ul>
-          </div>
-          <div class="specimen-card">
-            <div class="spec-title">Specimen B</div>
-            <ul>
-              <li>1.5 mm strut diameter</li>
-              <li>With top plate</li>
-              <li>Designed to distribute loading</li>
-            </ul>
-          </div>
-          <div class="specimen-card">
-            <div class="spec-title">Specimen C</div>
-            <ul>
-              <li>2.0 mm strut diameter</li>
-              <li>No top plate</li>
-              <li>Stiffer configuration for a higher force range</li>
-            </ul>
-          </div>
-          <div class="specimen-card">
-            <div class="spec-title">Specimen D</div>
-            <ul>
-              <li>2.0 mm strut diameter</li>
-              <li>With top plate</li>
-              <li>Stiffest configuration</li>
-            </ul>
-          </div>
+        <div class="spec-card reveal">
+          <div class="spec-title">Rapid Iteration</div>
+          <div class="spec-value">Printing four specimens in Flexible 50A takes roughly five hours. Locating pins let specimens be swapped by hand, so a new geometry can be designed, printed, and tested the same day.</div>
         </div>
-      </div>
-
-      <div class="content-section reveal">
-        <h2 class="section-title">Vision Pipeline</h2>
-        <p class="section-text">I replaced an initial marker-tracking approach with image differencing. Each camera frame is compared with a reference image captured at zero load. This captures changes across the lattice without requiring printed markers on its surface. The resulting difference image will be passed to a compact vision model to estimate the applied forces.</p>
-        <div class="pipeline-row reveal">
-          <div class="pipeline-step">
-            <div class="step-label">Input</div>
-            <div class="step-value">Raw Camera Frame</div>
-          </div>
-          <div class="pipeline-arrow">→</div>
-          <div class="pipeline-step">
-            <div class="step-label">Processing</div>
-            <div class="step-value">Difference Image<br><small style="color:var(--text-dim);">deformed − reference</small></div>
-          </div>
-          <div class="pipeline-arrow">→</div>
-          <div class="pipeline-step">
-            <div class="step-label">Model</div>
-            <div class="step-value">ResNet-18 or DeiT-Tiny</div>
-          </div>
-          <div class="pipeline-arrow">→</div>
-          <div class="pipeline-step">
-            <div class="step-label">Output</div>
-            <div class="step-value">Fx, Fy, Fz</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="content-section reveal">
-        <h2 class="section-title">Data Collection</h2>
-        <p class="section-text">Data collection uses a UFACTORY xArm 6 robot arm, a 6-axis force/torque sensor, and a custom 3D-printed probe with a rubber tip. Rubber on the probe and lattice surface is intended to transfer shear into the lattice and reduce slipping. The planned test includes 2,400 loading cycles across normal and shear conditions. Force measurements from the sensor will be paired with the corresponding camera frames.</p>
-        <div class="specs-grid" style="margin-top:24px;">
-          <div class="spec-card reveal">
-            <div class="spec-title">Normal Loading</div>
-            <div class="spec-value">1,200 cycles from 0–20 N to evaluate force-prediction accuracy and consistency across repeated loading. Changes in the response over time may indicate fatigue.</div>
-          </div>
-          <div class="spec-card reveal">
-            <div class="spec-title">Shear Loading</div>
-            <div class="spec-value">1,200 cycles with 0–5 N of lateral force applied under a normal preload. Rubber-on-rubber contact is intended to transfer shear while limiting slip.</div>
-          </div>
-          <div class="spec-card reveal">
-            <div class="spec-title">Ground Truth</div>
-            <div class="spec-value">The xArm's 6-axis force/torque sensor provides force labels for each camera frame. An RSA-G2 Dynamic Mechanical Analyzer will be used for additional material characterization.</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="image-gallery">
-        <figure class="gallery-item reveal">
-          <div class="gallery-image">
-            <img src="tactile_top_black.jpg" alt="Top view of assembled black housing with diamond lattice and LED ring" loading="lazy">
-          </div>
-          <figcaption class="gallery-title">Assembled Sensor — Top View (Black Housing)</figcaption>
-        </figure>
-        <figure class="gallery-item reveal">
-          <div class="gallery-image">
-            <img src="tactile_exploded_black.jpg" alt="Exploded view showing camera PCB, LED ring, and lattice stack" loading="lazy">
-          </div>
-          <figcaption class="gallery-title">Exploded View — Camera, LEDs, and Lattice Stack</figcaption>
-        </figure>
-        <figure class="gallery-item reveal">
-          <div class="gallery-image">
-            <img src="tactile_specimens.jpg" alt="Four lattice specimens: 2x2 matrix of strut diameter and top plate" loading="lazy">
-          </div>
-          <figcaption class="gallery-title">Four Test Specimens — 1.5 mm / 2.0 mm Strut × With / Without Top Plate</figcaption>
-        </figure>
-        <figure class="gallery-item reveal">
-          <div class="gallery-image">
-            <img src="tactile_live_feed.jpg" alt="Assembled white prototype with live camera feed visible on laptop" loading="lazy">
-          </div>
-          <figcaption class="gallery-title">Live Camera Feed — Lattice Deformation Visible on Screen</figcaption>
-        </figure>
-      </div>
-
-      <div class="content-section" style="margin-top:clamp(56px,8vw,88px);">
-        <h2 class="section-title reveal">Technical Specifications</h2>
-        <div class="specs-grid">
-          <div class="spec-card reveal">
-            <div class="spec-title">Sensing Hardware</div>
-            <div class="spec-value">
-              <ul>
-                <li>Arducam B0446 8MP IMX179 USB camera</li>
-                <li>SK6812 LED strip, 144 LED/m</li>
-                <li>UFACTORY xArm 6 (6-DOF) for data collection</li>
-                <li>6-axis F/T sensor for ground-truth measurements</li>
-              </ul>
-            </div>
-          </div>
-          <div class="spec-card reveal">
-            <div class="spec-title">Lattice &amp; Materials</div>
-            <div class="spec-value">
-              <ul>
-                <li>Diamond lattice geometry (nTopology)</li>
-                <li>Formlabs Flexible 50A resin, SLA</li>
-                <li>1.5 mm and 2.0 mm strut diameters</li>
-                <li>With and without rigid top plate</li>
-              </ul>
-            </div>
-          </div>
-          <div class="spec-card reveal">
-            <div class="spec-title">ML Pipeline</div>
-            <div class="spec-value">
-              <ul>
-                <li>Input: difference image (deformed − reference)</li>
-                <li>Model: ResNet-18 or DeiT-Tiny</li>
-                <li>Output: 3-axis force (Fx, Fy, Fz)</li>
-                <li>2,400 planned labeled loading cycles</li>
-              </ul>
-            </div>
-          </div>
-          <div class="spec-card reveal">
-            <div class="spec-title">Housing</div>
-            <div class="spec-value">
-              <ul>
-                <li>FDM PLA housing, printed in black to reduce internal reflections</li>
-                <li>Locating pins for repeatable assembly</li>
-                <li>Lead-in chamfers on all screw holes</li>
-                <li>External brim bracket to isolate lattice deformation</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <section class="project-navigation">
-    <div class="container">
-      <h3>Explore more projects</h3>
-      <div class="nav-projects">
-        <a href="lhr.html" class="nav-project">Longhorn Racing →</a>
-        <a href="rc_car.html" class="nav-project">Custom RC Car →</a>
-        <a href="battlebots.html" class="nav-project">Battle Bots →</a>
-        <a href="ahs.html" class="nav-project">Automated Hydroponic System →</a>
-        <a href="mini_vice.html" class="nav-project">Mini Precision Vise →</a>
-        <a href="lattice.html" class="nav-project">SLS Octet Lattice →</a>
       </div>
     </div>
-  </section>
 
-  <script src="script.js"></script>
-</body>
-</html>
+    <div class="content-section reveal">
+      <h2 class="section-title">Hardware Design</h2>
+      <p class="section-text">The sensor housing consists of four main components: a top cover that holds the lattice, the lattice specimen, a mid-frame for the LED ring, and a camera base. Early prototypes were printed in white PLA, but internal reflections reduced image contrast. The housing was changed to black PLA to address this issue. Locating pins were added to improve alignment during assembly, and an external bracket replaced the lattice’s built-in brim, which did not remain secure under load.</p>
+
+      <div class="image-gallery" style="margin-top:28px;">
+        <figure class="gallery-item reveal">
+          <div class="gallery-image" style="min-height:240px;">
+            <div class="gallery-placeholder">
+              <span class="ph-tag">CAD</span>
+              <span class="ph-desc">Exploded-view render showing the four main sub-assemblies separated along the vertical axis: top cover, lattice specimen, LED mid-frame, and camera base.</span>
+              <span class="ph-file">housing_exploded_cad.png</span>
+            </div>
+          </div>
+          <figcaption class="gallery-title">Exploded CAD — four-part housing stack</figcaption>
+        </figure>
+        <figure class="gallery-item reveal">
+          <div class="gallery-image" style="min-height:240px;">
+            <div class="gallery-placeholder">
+              <span class="ph-tag">CAD</span>
+              <span class="ph-desc">Top and bottom housing halves shown as a matched pair, top view and bottom view side by side, with locating pin sockets and brim bracket seats visible.</span>
+              <span class="ph-file">housing_top_bottom_cad.png</span>
+            </div>
+          </div>
+          <figcaption class="gallery-title">Housing halves — top and bottom view</figcaption>
+        </figure>
+        <figure class="gallery-item wide-image reveal">
+          <div class="gallery-image" style="min-height:240px;">
+            <div class="gallery-placeholder">
+              <span class="ph-tag">CAD</span>
+              <span class="ph-desc">Cross-section or interior render of the assembled sensor showing the camera, LED ring, lattice specimen, and brim bracket in their final positions.</span>
+              <span class="ph-file">housing_interior_assembled.png</span>
+            </div>
+          </div>
+          <figcaption class="gallery-title">Assembly interior — camera, LEDs, lattice, and brim bracket in position</figcaption>
+        </figure>
+      </div>
+
+      <div class="specs-grid" style="margin-top:28px;">
+        <div class="spec-card reveal">
+          <div class="spec-title">Locating Pins</div>
+          <div class="spec-value">Aligns the top and bottom housing halves consistently. The pins also make it easier to swap specimens by hand and reduce setup variation between robot-arm runs.</div>
+        </div>
+        <div class="spec-card reveal">
+          <div class="spec-title">Lead-in Chamfers</div>
+          <div class="spec-value">Chamfers around the screw holes help guide fasteners into place and reduce the risk of cracking the PLA, which occurred during early assembly.</div>
+        </div>
+        <div class="spec-card reveal">
+          <div class="spec-title">External Brim Bracket</div>
+          <div class="spec-value">The lattice's built-in brim was too thin to attach rigidly to the housing. As a result, the boundary moved with the lattice and added noise to the camera signal. An external bracket now holds the brim in place so the measured deformation comes primarily from the lattice interior.</div>
+        </div>
+        <div class="spec-card reveal">
+          <div class="spec-title">LED Illumination</div>
+          <div class="spec-value">An SK6812 LED strip with 144 LEDs/m surrounds the lattice window. Consistent lighting helps limit shadows and bright spots that could appear in the difference image and be mistaken for lattice deformation.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-section reveal">
+      <h2 class="section-title">Lattice Specimens</h2>
+      <p class="section-text">Four diamond-lattice specimens were printed in Formlabs Flexible 50A resin using SLA. The material deforms under the planned loading conditions (0–20 N normal force and 0–5 N shear force) and is expected to recover between cycles, supporting repeatable data collection. The specimens form a 2 × 2 matrix crossing two strut diameters (1.5 mm and 2.0 mm) with two unit cell sizes (5×5×5 and 8×8×8 mm). All four specimens include a rigid top plate, which distributes probe contact across multiple unit cells and is expected to reduce stress concentrations at the loading point.</p>
+
+      <figure class="gallery-item reveal" style="margin-top:28px;">
+        <div class="gallery-image" style="min-height:240px;">
+          <div class="gallery-placeholder">
+            <span class="ph-tag">Photo</span>
+            <span class="ph-desc">Four SLA specimens arranged in a 2×2 grid — left column 1.5 mm strut, right column 2.0 mm strut; top row 5×5×5 unit cell, bottom row 8×8×8 unit cell. All specimens include a rigid top plate.</span>
+            <span class="ph-file">lattice_specimens_2x2.jpg</span>
+          </div>
+        </div>
+        <figcaption class="gallery-title">Lattice specimen matrix — 1.5 mm / 2.0 mm strut × 5×5×5 / 8×8×8 unit cell, all with rigid top plate (Flexible 50A resin, SLA)</figcaption>
+      </figure>
+
+      <div class="specimen-grid reveal" style="margin-top:20px;">
+        <div class="specimen-card">
+          <div class="spec-title">A — 1.5 mm strut, 5×5×5 cell</div>
+          <ul>
+            <li>40 × 40 × 15 mm overall</li>
+            <li>Softest configuration; smallest unit cell, thinnest struts</li>
+            <li>Highest cell count per footprint — dense deformation field</li>
+          </ul>
+        </div>
+        <div class="specimen-card">
+          <div class="spec-title">B — 1.5 mm strut, 8×8×8 cell</div>
+          <ul>
+            <li>40 × 40 × 16 mm overall</li>
+            <li>Soft stiffness with larger open cell geometry</li>
+            <li>Fewer cells; broader, lower-gradient deformation pattern</li>
+          </ul>
+        </div>
+        <div class="specimen-card">
+          <div class="spec-title">C — 2.0 mm strut, 5×5×5 cell</div>
+          <ul>
+            <li>40 × 40 × 15 mm overall</li>
+            <li>~1.8× strut cross-section vs. Specimen A; increased stiffness</li>
+            <li>Dense cell layout with stiffer members</li>
+          </ul>
+        </div>
+        <div class="specimen-card">
+          <div class="spec-title">D — 2.0 mm strut, 8×8×8 cell</div>
+          <ul>
+            <li>40 × 40 × 16 mm overall</li>
+            <li>Stiffest configuration; largest cell, thickest struts</li>
+            <li>Most compliant under bulk compression; fewest cell boundaries</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-section reveal">
+      <h2 class="section-title">Vision Pipeline</h2>
+      <p class="section-text">The initial approach used marker tracking, but the pipeline was changed to image differencing. Each camera frame is compared with a reference image captured at zero load. The resulting difference image highlights changes in the lattice without requiring markers on its surface. A compact vision model uses this image to estimate Fx, Fy, and Fz.</p>
+      <div class="pipeline-row reveal">
+        <div class="pipeline-step">
+          <div class="step-label">Input</div>
+          <div class="step-value">Raw Camera Frame</div>
+        </div>
+        <div class="pipeline-arrow">→</div>
+        <div class="pipeline-step">
+          <div class="step-label">Processing</div>
+          <div class="step-value">Difference Image<br><small style="color:var(--text-dim);">deformed − reference</small></div>
+        </div>
+        <div class="pipeline-arrow">→</div>
+        <div class="pipeline-step">
+          <div class="step-label">Model</div>
+          <div class="step-value">ResNet-18 or DeiT-Tiny</div>
+        </div>
+        <div class="pipeline-arrow">→</div>
+        <div class="pipeline-step">
+          <div class="step-label">Output</div>
+          <div class="step-value">Fx, Fy, Fz</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-section reveal">
+      <h2 class="section-title">Data Collection</h2>
+      <p class="section-text">Data collection uses a UFACTORY xArm 6, a six-axis force/torque sensor, and a 3D-printed probe with a rubber tip. The tip is designed to improve contact with the lattice and transfer shear loads while limiting slip. The planned protocol includes 2,400 loading cycles across normal and shear conditions. Each cycle pairs a force measurement with the corresponding camera frame.</p>
+      <div class="specs-grid" style="margin-top:24px;">
+        <div class="spec-card reveal">
+          <div class="spec-title">Normal Loading</div>
+          <div class="spec-value">1,200 cycles from 0–20 N to evaluate force-prediction accuracy and consistency across repeated loading. Changes in the response over time may indicate fatigue.</div>
+        </div>
+        <div class="spec-card reveal">
+          <div class="spec-title">Shear Loading</div>
+          <div class="spec-value">1,200 cycles with 0–5 N of lateral force applied under a normal preload. Rubber-on-rubber contact is intended to transfer shear while limiting slip.</div>
+        </div>
+        <div class="spec-card reveal">
+          <div class="spec-title">Ground Truth</div>
+          <div class="spec-value">The xArm's 6-axis force/torque sensor provides force labels for each camera frame. An RSA-G2 Dynamic Mechanical Analyzer will be used for additional material characterization.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Preliminary deformation video placeholder -->
+    <div class="content-section reveal" style="margin-top:clamp(48px,7vw,80px);">
+      <h2 class="section-title">Preliminary Results</h2>
+      <p class="section-text">Before beginning the full 2,400-cycle protocol, the camera pipeline was evaluated under manual loading. In the clip below, the difference image updates as the lattice compresses and returns to its original shape. Changes are visible across the strut network, and the image returns close to its unloaded baseline when the force is removed. This preliminary check supports using image differencing for the planned robot-arm experiments.</p>
+      <figure class="gallery-item reveal" style="margin-top:24px;">
+        <div class="gallery-image" style="min-height:280px;">
+          <div class="gallery-placeholder">
+            <span class="ph-tag">Video</span>
+            <span class="ph-desc">Short clip (~15 s) of the sensor under manual compression. Left panel: raw camera frame. Right panel: difference image (deformed − reference) showing the deformation field update in real time.</span>
+            <span class="ph-file">deformation_preview.mp4</span>
+          </div>
+        </div>
+        <figcaption class="gallery-title">Preliminary deformation — real-time difference image under manual loading</figcaption>
+      </figure>
+    </div>
+
+    <div class="content-section" style="margin-top:clamp(56px,8vw,88px);">
+      <h2 class="section-title reveal">Technical Specifications</h2>
+      <div class="specs-grid">
+        <div class="spec-card reveal">
+          <div class="spec-title">Sensing Hardware</div>
+          <div class="spec-value">
+            <ul>
+              <li>Arducam B0446 8MP IMX179 USB camera</li>
+              <li>SK6812 LED strip, 144 LED/m</li>
+              <li>UFACTORY xArm 6 (6-DOF) for data collection</li>
+              <li>6-axis F/T sensor for ground-truth measurements</li>
+            </ul>
+          </div>
+        </div>
+        <div class="spec-card reveal">
+          <div class="spec-title">Lattice &amp; Materials</div>
+          <div class="spec-value">
+            <ul>
+              <li>Diamond lattice geometry (nTopology)</li>
+              <li>Formlabs Flexible 50A resin, SLA</li>
+              <li>1.5 mm and 2.0 mm strut diameters</li>
+              <li>Unit cell sizes: 5×5×5 mm and 8×8×8 mm</li>
+              <li>All specimens include rigid top plate</li>
+            </ul>
+          </div>
+        </div>
+        <div class="spec-card reveal">
+          <div class="spec-title">ML Pipeline</div>
+          <div class="spec-value">
+            <ul>
+              <li>Input: difference image (deformed − reference)</li>
+              <li>Model: ResNet-18 or DeiT-Tiny</li>
+              <li>Output: 3-axis force (Fx, Fy, Fz)</li>
+              <li>2,400 planned labeled loading cycles</li>
+            </ul>
+          </div>
+        </div>
+        <div class="spec-card reveal">
+          <div class="spec-title">Housing</div>
+          <div class="spec-value">
+            <ul>
+              <li>FDM PLA housing, printed in black to reduce internal reflections</li>
+              <li>Locating pins for repeatable assembly</li>
+              <li>Lead-in chamfers on all screw holes</li>
+              <li>External brim bracket to isolate lattice deformation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+    <!-- References -->
+    <div class="references-section reveal">
+      <h2 class="section-title">References</h2>
+      <ol class="ref-list">
+        <li><span class="ref-num">[1]</span><span>Yuan, W., Dong, S., &amp; Adelson, E. H. (2017). GelSight: High-resolution robot tactile sensors for estimating geometry and force. <em>Sensors</em>, 17(12), 2762.</span></li>
+        <li><span class="ref-num">[2]</span><span>Lambeta, M., Chou, P. W., Tian, S., Yang, B., Maloon, B., Most, V. R., &hellip; &amp; Calandra, R. (2020). Digit: A novel design for a low-cost compact high-resolution tactile sensor with application to in-hand manipulation. <em>IEEE Robotics and Automation Letters</em>, 5(3), 3838&ndash;3845.</span></li>
+        <li><span class="ref-num">[3]</span><span>Fang, B., Zhao, J., Liu, N., Sun, Y., Zhang, S., Sun, F., &hellip; &amp; Yang, Y. (2025). Force measurement technology of vision-based tactile sensor. <em>Advanced Intelligent Systems</em>, 7(1), 2400290.</span></li>
+        <li><span class="ref-num">[4]</span><span>Sun, H., Kuchenbecker, K. J., &amp; Martius, G. (2022). A soft thumb-sized vision-based sensor with accurate all-round force perception. <em>Nature Machine Intelligence</em>, 4(2), 135&ndash;145.</span></li>
+        <li><span class="ref-num">[5]</span><span>Bertoldi, K., Vitelli, V., Christensen, J., &amp; Van Hecke, M. (2017). Flexible mechanical metamaterials. <em>Nature Reviews Materials</em>, 2(11), 17066.</span></li>
+        <li><span class="ref-num">[6]</span><span>Kara, O. C., Ikoma, N., &amp; Alambeigi, F. (2022). HySense: A hyper-sensitive and high-fidelity vision-based tactile sensor. <em>IEEE Sensors</em>, pp. 1&ndash;4.</span></li>
+        <li><span class="ref-num">[7]</span><span>Zhao, J., Kuppuswamy, N., Feng, S., Burchfiel, B., &amp; Adelson, E. (2025). PolyTouch: A robust multi-modal tactile sensor for contact-rich manipulation using tactile-diffusion policies. <em>ICRA 2025</em>, pp. 104&ndash;110.</span></li>
+        <li><span class="ref-num">[8]</span><span>Cottrell, F. R., Tippur, M. H., &amp; Adelson, E. H. (2026). A durable vision-based tactile fingertip for robotic manipulation. <em>arXiv</em>:2608.24242.</span></li>
+        <li><span class="ref-num">[9]</span><span>Hussain, S., Saleem, M. M., Rehan, M., Elahi, H., &amp; Tiwana, M. I. (2024). A high sensitivity, low cost and fully decoupled multi-axis capacitive tactile force sensor for robotic surgical systems. <em>PLOS ONE</em>, 19(11), e0313737.</span></li>
+        <li><span class="ref-num">[10]</span><span>Kang, M., Choi, H.-G., Park, K., &amp; Pyo, S. (2025). Additively manufactured 3D auxetic metamaterials for structurally guided capacitive and resistive tactile sensing. <em>Advanced Functional Materials</em>, 35(47), e09704.</span></li>
+        <li><span class="ref-num">[11]</span><span>Hu, T., Pan, T., Guo, D., Xiao, Y., Li, F., Gao, M., &hellip; &amp; Lin, Y. (2023). Omnidirectional configuration of stretchable strain sensor enabled by the strain engineering with chiral auxetic metamaterial. <em>ACS Nano</em>, 17(21), 22035&ndash;22045.</span></li>
+        <li><span class="ref-num">[12]</span><span>Thirunavukkarasu, N., Gao, J., Peng, S., Laroui, A., Wu, L., &amp; Weng, Z. (2023). Mechanically robust 3D printed elastomeric lattices inspired by strong and tough hierarchical structures. <em>Additive Manufacturing</em>, 66, 103451.</span></li>
+        <li><span class="ref-num">[13]</span><span>Zhang, A., Flores-Acton, M., Yu, A., Gupta, A., Yao, M., &amp; Rus, D. (2025). Fluidically innervated lattices make versatile and durable tactile sensors. <em>ISER 2025</em>.</span></li>
+      </ol>
+    </div>
+
+  </div>
+</section>
+
+<section class="project-navigation">
+  <div class="container">
+    <h3>Explore more projects</h3>
+    <div class="nav-projects">
+      <a href="lhr.html" class="nav-project">Longhorn Racing →</a>
+      <a href="rc_car.html" class="nav-project">Custom RC Car →</a>
+      <a href="battlebots.html" class="nav-project">Battle Bots →</a>
+      <a href="ahs.html" class="nav-project">Automated Hydroponic System →</a>
+      <a href="mini_vice.html" class="nav-project">Mini Precision Vise →</a>
+      <a href="lattice.html" class="nav-project">SLS Octet Lattice →</a>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  'use strict';
+  var nav = document.getElementById('navbar');
+  function onScroll() {
+    if (!nav) return;
+    nav.classList.toggle('scrolled', window.scrollY > 24);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var targets = document.querySelectorAll('.reveal');
+  if (reduce || !('IntersectionObserver' in window)) {
+    targets.forEach(function (el) { el.classList.add('is-visible'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    targets.forEach(function (el) { io.observe(el); });
+  }
+})();
+</script>
