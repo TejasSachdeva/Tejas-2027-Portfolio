@@ -247,6 +247,7 @@ nav.scrolled {
   font-weight: 600;
   line-height: 1.02;
   letter-spacing: -0.035em;
+  margin-left: -0.04em;
   color: var(--text);
 }
 .hero-primary .subtitle {
